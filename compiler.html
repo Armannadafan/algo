@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Code Editor</title>
+    
+    <script src="https://kit.fontawesome.com/8d7302ea75.js" crossorigin="anonymous"></script>
+<style>
+  /* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* CSS for the live code editor */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+.compiler-wrapper {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh; /* Ensure background covers the entire viewport height */
+    background-color: #f5f5f5; /* Background color for the entire compiler area */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    max-width: 1200px;
+    margin: 40 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease;
+    animation: slideIn .5s ease;
+}
+
+.left, .right {
+    flex: 1;
+    padding: 40px; /* Increase the padding to make it larger */
+}
+
+/* Increase the font size for textareas */
+textarea {
+    font-size: 18px; /* Increase the font size for the code editor */
+}
+
+.left {
+    background-color: #f7f7f7;
+}
+
+.right {
+    background-color: #ffffff;
+}
+
+
+#output {
+    background-color: #f0f0f0; /* Light gray background color */
+    color: #333; /* Dark gray text color */
+    border-radius: 5px; /* Rounded corners */
+    padding: 20px; /* Increased padding for content */
+    font-family: 'Arial', sans-serif; /* Font family */
+    line-height: 1.5;
+    animation: slideInLeft 1s ease, fadeIn 0.5s ease;
+    height: calc(100% - 44px); /* Adjust height */
+    overflow-y: auto; /* Add scrollbar if content exceeds the height */
+}
+
+#output p {
+    color: #3498db; /* Blue text color for paragraphs */
+}
+
+#output pre {
+    background-color: #ecf0f1; /* Light blue background for code blocks */
+    border: 1px solid #bdc3c7; /* Light border for code blocks */
+    color: #333; /* Dark gray text color for code blocks */
+    padding: 10px; /* Padding for code blocks */
+    border-radius: 3px; /* Slight border radius for code blocks */
+}
+
+/* Add animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+textarea {
+    width: 100%;
+    min-height: 150px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+iframe {
+    width: 100%;
+    background: pink;
+    border: 0;
+    outline: 0;
+}
+
+label i {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.run-button, .clear-button {
+    background-color: #27ae60; /* Green button background color */
+    color: #fff; /* White button text color */
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    transform: scale(1);
+}
+
+.run-button:hover, .clear-button:hover {
+    background-color: #ff6b6b;
+    transform: scale(1.05);
+}
+
+/* Add animation to labels */
+.animated-label {
+    animation: fadeIn 0.5s ease;
+}
+
+/* Add animation to icons */
+.animated-icon {
+    animation: rotate 1s infinite linear;
+}
+
+/* Add color and styling to labels and icons */
+.colorful-label {
+    color: #ff6b6b; /* Reddish-pink text color */
+    font-size: 24px; /* Larger font size */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Text shadow for depth */
+}
+
+.colorful-icon {
+    color: #3498db; /* Blue color for icons */
+    font-size: 32px; /* Larger icon size */
+}
+
+.right label {
+    color: #333; /* Dark gray text color */
+    font-size: 18px; /* Font size */
+    margin-bottom: 10px; /* Space between label and output */
+    animation: fadeIn 0.5s ease; /* Fade-in animation */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* Media queries for responsiveness */
+@media (max-width: 767px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .left, .right {
+        padding: 10px;
+    }
+
+    textarea {
+        font-size: 14px;
+        min-height: 80px;
+    }
+}
+</style>
+</head>
+<body>
+  
+    <div class="compiler-wrapper">
+    <div class="container">
+        <div class="left">
+            <label class="animated-label colorful-label"><i class="fa-brands fa-html5 animated-icon"></i>HTML</label>
+            <textarea id="html-code" onkeyup="run()" class="fade-in"></textarea>
+
+            <label class="animated-label colorful-label"><i class="fa-brands fa-css3-alt animated-icon"></i>CSS</label>
+            <textarea id="css-code" onkeyup="run()" class="fade-in"></textarea>
+
+            <label class="animated-label colorful-label"><i class="fa-brands fa-js animated-icon"></i>JavaScript</label>
+            <textarea id="js-code" onkeyup="run()" class="fade-in"></textarea>
+
+            <button class="run-button" onclick="runCode()">Run Code</button>
+            <button class="clear-button" onclick="clearCode()">Clear Code</button>
+        </div>
+        <div class="right">
+            <label><i class="fa-solid fa-play"></i>OUTPUT</label>
+            <iframe id="output" class="fade-in"></iframe>
+        </div>
+    </div>
+
+    
+    <script>
+        // JavaScript functions (runCode and clearCode functions)
+     function runCode() {
+            const htmlCode = document.getElementById("html-code").value;
+            const cssCode = document.getElementById("css-code").value;
+            const jsCode = document.getElementById("js-code").value;
+
+            const iframe = document.getElementById("output");
+            const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+
+            // Clear previous output
+            iframeDocument.body.innerHTML = "";
+
+            // Create a new script element for JavaScript code execution
+            const script = iframeDocument.createElement("script");
+            script.textContent = jsCode;
+
+            // Create and set the HTML content and style in the iframe
+            const styleElement = iframeDocument.createElement("style");
+            styleElement.textContent = cssCode;
+
+            // Append the style and script elements to the iframe's head
+            iframeDocument.head.appendChild(styleElement);
+            iframeDocument.head.appendChild(script);
+
+            // Set the HTML content
+            iframeDocument.body.innerHTML = htmlCode;
+        }
+
+        function clearCode() {
+            document.getElementById("html-code").value = '';
+            document.getElementById("css-code").value = '';
+            document.getElementById("js-code").value = '';
+            document.getElementById("output").contentDocument.body.innerHTML = '';
+        }
+    </script>
+    
+</body>
+</html>

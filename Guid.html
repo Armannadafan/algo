@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Water Drop Cards UI</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background: #eff0f4;
+        }
+
+        .title-containerti {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .title {
+            font-size: 2em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #333;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .title:hover {
+            color: #ff0f5b;
+            transform: scale(1.05);
+        }
+
+        .containerti {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 40px 60px;
+        }
+
+        .containerti .drop {
+            position: relative;
+            width: 350px;
+            max-height: 500px; /* Adjust the max height as needed */
+            box-shadow: inset 20px 20px 20px rgba(0, 0, 0, 0.05),
+                        25px 35px 20px rgba(0, 0, 0, 0.05),
+                        25px 30px 30px rgba(0, 0, 0, 0.05),
+                        inset -20px -20px 25px rgba(255, 255, 255, 0.9);
+            transition: 0.5s ease-in-out;
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .containerti .drop:nth-child(1) {
+            border-radius: 57% 43% 43% 57% / 43% 43% 57% 57%;
+        }
+
+        .containerti .drop:nth-child(2) {
+            border-radius: 61% 39% 52% 48% / 44% 59% 41% 56%;
+        }
+
+        .containerti .drop:nth-child(3) {
+            border-radius: 35% 65% 31% 69% / 57% 59% 41% 43%;
+        }
+
+        .containerti .drop:hover {
+            border-radius: 50%;
+        }
+
+        .containerti.drop::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 85px;
+            width: 35px;
+            height: 35px;
+            background: #fff;
+            border-radius: 50%;
+            opacity: 0.9;
+        }
+
+        .containerti.drop::after {
+            content: '';
+            position: absolute;
+            top: 90px;
+            left: 110px;
+            width: 15px;
+            height: 15px;
+            background: #fff;
+            border-radius: 50%;
+            opacity: 0.9;
+        }
+
+        .containerti .drop .content {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 40px;
+            gap: 15px;
+            max-height: 100%;
+            overflow: hidden;
+        }
+
+        .containerti .drop .content h2 {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            background: #eff0f4;
+            border-radius: 50%;
+            box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.1),
+                        inset -2px -5px 10px rgba(255, 255, 255, 1),
+                        15px 15px 10px rgba(0, 0, 0, 0.05),
+                        15px 15px 10px rgba(0, 0, 0, 0.025);
+            display: flex;
+            justify-content: center;
+            font-size: 2em;
+            color: var(--clr);
+        }
+
+        .containerti .drop .content h2 {
+            font-size: 1.5em;
+        }
+
+        .containerti .drop .content p {
+            font-size: 1.2em;
+            line-height: 1.4;
+        }
+
+        .containerti .drop .content a {
+            position: relative;
+            padding: 10px 25px;
+            background: var(--clr);
+            text-decoration: none;
+            color: #fff;
+            border-radius: 25px;
+            font-weight: 500;
+            text-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+            opacity: 0.75;
+            transition: 0.5s;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .containerti .drop:hover .content a {
+            opacity: 1;
+        }
+
+        .containerti .drop .content a::before {
+            content: '';
+            position: absolute;
+            left: -10%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 120%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            opacity: 0.9;
+            z-index: -1;
+            transition: transform 0.5s;
+        }
+
+        .containerti .drop .content a:hover::before {
+            transform: translateX(50%) translateY(-50%);
+        }
+        /* pallrax */
+        #parallax-banner {
+    background-image: url('banner/vecteezy_modern-workspace-with-computer-and-office-supplies-3d_22653679_842.jpg'); /* Replace with your background image URL */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    color: #fff; /* Change text color to your preference */
+    text-align: center;
+    padding: 100px 0;
+}
+
+.parallax-content {
+        padding: 20px;
+}
+
+.parallax-text {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.contact-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #ff0f5b;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+    background-color: #333; /* Change the button color on hover */
+}
+/* video bg */
+#video-banner {
+    position: relative;
+    background-color: #000; /* Fallback background color in case the video doesn't load */
+    overflow: hidden;
+    text-align: center;
+    color: #fff; /* Text color */
+    padding: 100px 0; /* Adjust padding as needed */
+}
+
+#bg-video {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1; /* Place the video behind other content */
+    object-fit: cover;
+}
+
+#bg-video::after {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent overlay for better readability */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Centered text or content */
+.centered-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Place content above the video */
+    text-align: center;
+}
+
+/* Style your text or content here */
+.centered-content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #fff; /* Text color */
+}
+
+/* Style your video controls (if needed) */
+#bg-video::-webkit-media-controls {
+    display: none; /* Hide default video controls in Webkit browsers */
+}
+
+
+/* css all */
+
+
+/*-----------------------------------*\
+  #CUSTOM PROPERTY
+\*-----------------------------------*/
+
+:root {
+
+/**
+ * colors
+ */
+ --violet-blue-crayola: hsla(234, 50%, 64%, 1);
+--dark-cornflower-blue_a7: hsla(214, 88%, 27%, 0.07);
+--white: hsla(0, 0%, 100%, 1);
+--white_a3: hsla(0, 0%, 100%, 0.03);
+--white_a8: hsla(0, 0%, 100%, 0.08);
+--white_a12: hsla(0, 0%, 100%, 0.12);
+--white_a70: hsla(0, 0%, 100%, 0.7);
+--cultured: hsla(220, 20%, 97%, 1);
+--lavender-web: hsla(233, 52%, 94%, 1);
+--cadet-blue-crayola: hsla(220, 12%, 70%, 1);
+--cadet-blue-crayola_a20: hsla(222, 23%, 71%, 0.2);
+--charcoal: hsla(218, 22%, 26%, 1);
+--raisin-black: hsla(216, 14%, 14%, 1);
+--light-gray: hsla(0, 0%, 79%, 1);
+--blue-crayola: hsla(219, 72%, 56%, 1);
+--black-coral: hsla(220, 12%, 43%, 1);
+/**
+ * typography
+ */
+--ff-manrope: 'Manrope', sans-serif;
+--fs-1: calc(2.7rem + 1.38vw);
+--fs-2: calc(2.6rem + .66vw);
+--fs-3: 2.2rem;
+--fs-4: 1.9rem;
+--fs-5: 1.
+
+
+/**
+ * box shadow
+ */
+
+--shadow-1: 0 0 20px hsla(216, 14%, 14%, 0.05);
+--shadow-2: 0 0 0 0.05rem hsla(214, 88%, 27%, 0.08), 0 0 1.25rem hsla(216, 14%, 14%, 0.06);
+--shadow-3: 0 0 1.25rem hsla(216, 14%, 14%, 0.04);
+
+/**
+ * border radius
+ */
+
+--radius-circle: 50%;
+--radius-pill: 100px;
+--radius-10: 10px;
+--radius-8: 8px;
+--radius-6: 6px;
+
+/**
+ * transition
+ */
+
+--transition-1: 0.25s ease;
+--transition-2: 0.5s ease;
+--transition-3: 0.3s ease-in-out;
+
+}
+
+
+
+
+
+
+
+
+/*-----------------------------------*\
+  #RESET
+\*-----------------------------------*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li { list-style: none; }
+
+a,
+img,
+span,
+input,
+button,
+ion-icon { display: block; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img { height: auto; }
+
+input,
+button {
+  background: none;
+  border: none;
+  font: inherit;
+}
+
+input { width: 100%; }
+
+button { cursor: pointer; }
+
+ion-icon { pointer-events: none; }
+
+address { font-style: normal; }
+
+html {
+  font-family: var(--ff-manrope);
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--white);
+  color: var(--black-coral);
+  font-size: 1.6rem;
+  line-height: 1.7;
+}
+
+body.nav-active { overflow: hidden; }
+
+::-webkit-scrollbar { width: 10px; }
+
+::-webkit-scrollbar-track { background-color: hsl(0, 0%, 98%); }
+
+::-webkit-scrollbar-thumb { background-color: hsl(0, 0%, 80%); }
+
+::-webkit-scrollbar-thumb:hover { background-color: hsl(0, 0%, 70%); }
+
+
+
+
+
+/*-----------------------------------*\
+  #REUSED STYLE
+\*-----------------------------------*/
+
+.container { padding-inline: 16px; }
+
+.social-list {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.social-link {
+  font-size: 2rem;
+  transition: var(--transition-1);
+}
+
+.social-link:is(:hover, :focus-visible) { transform: translateY(-3px); }
+
+.section { padding-block: var(--section-padding); }
+
+.has-bg-image {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+  color: var(--charcoal);
+  font-weight: var(--fw-700);
+  line-height: 1.3;
+}
+
+.h1 { font-size: var(--fs-1); }
+
+.h2 { font-size: var(--fs-2); }
+
+.h3 { font-size: var(--fs-3); }
+
+.h4 { font-size: var(--fs-4); }
+
+.h5 { font-size: var(--fs-6); }
+
+.btn {
+  color: var(--white);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-700);
+  border: 2px solid var(--white);
+  max-width: max-content;
+  padding: 12px 28px;
+  border-radius: var(--radius-pill);
+  transition: var(--transition-1);
+  will-change: transform;
+}
+
+.btn:is(:hover, :focus-visible) { transform: translateY(-4px); }
+
+.btn-primary,
+.btn-outline:is(:hover, :focus-visible) {
+  background-color: var(--white);
+  color: var(--charcoal);
+}
+
+.img-holder {
+  aspect-ratio: var(--width) / var(--height);
+  background-color: var(--light-gray);
+  overflow: hidden;
+}
+
+.img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.section-subtitle {
+  font-size: var(--fs-7);
+  text-transform: uppercase;
+  color: var(--violet-blue-crayola);
+  font-weight: var(--fw-700);
+  margin-block-end: 16px;
+}
+
+.grid-list {
+  display: grid;
+  gap: 25px;
+}
+
+.w-100 { width: 100%; }
+
+
+
+
+
+/*-----------------------------------*\
+  #HEADER
+\*-----------------------------------*/
+
+.header .btn { display: none; }
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-block: 20px;
+  box-shadow: var(--shadow-1);
+  z-index: 4;
+  margin-bottom: 10px;
+  margin-bottom: 0;
+}
+
+.header.active {
+  background-color: var(--white);
+  position: fixed;
+  animation: slideIn 0.5s ease forwards;
+}
+
+@keyframes slideIn {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(0); }
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.header.active .logo-light,
+.header .logo-dark { display: none; }
+
+.header .logo-light,
+.header.active .logo-dark { display: block; }
+
+.nav-open-btn {
+  font-size: 3.5rem;
+  color: var(--white);
+}
+
+.header.active .nav-open-btn { color: var(--charcoal); }
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  background-color: var(--raisin-black);
+  color: var(--white);
+  max-width: 300px;
+  width: 100%;
+  height: 100vh;
+  padding: 30px;
+  padding-block-end: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  z-index: 2;
+  visibility: hidden;
+  transition: var(--transition-3);
+}
+
+.navbar.active {
+  visibility: visible;
+  transform: translateX(300px);
+}
+
+.navbar-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-close-btn {
+  background-color: var(--white_a8);
+  color: var(--white);
+  font-size: 2rem;
+  padding: 6px;
+  border-radius: var(--radius-circle);
+  transition: var(--transition-1);
+}
+
+.nav-close-btn ion-icon { --ionicon-stroke-width: 50px; }
+
+.nav-close-btn:is(:hover, :focus-visible) { background-color: var(--white_a12); }
+
+.navbar-list { margin-block-end: auto; }
+
+.navbar-link {
+  font-weight: var(--fw-700);
+  padding-block: 6px;
+}
+
+.contact-link { transition: var(--transition-1); }
+
+.contact-link:is(:hover, :focus-visible) { color: var(--violet-blue-crayola); }
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--raisin-black);
+  pointer-events: none;
+  opacity: 0;
+  transition: var(--transition-1);
+}
+
+.overlay.active {
+  pointer-events: all;
+  opacity: 0.8;
+}
+
+.navbar-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-list li {
+  display: inline-block;
+  margin-right: 20px;
+  position: relative;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: #333;
+}
+/* Add this CSS to your existing stylesheet */
+
+/* Navbar Dropdown Styles */
+.navbar-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 1;
+  min-width: 200px; /* Adjust the width as needed */
+  border-radius: 5px;
+}
+
+/* Style for the individual items in the dropdown */
+.navbar-dropdown a {
+  display: block;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect for dropdown items */
+.navbar-dropdown a:hover {
+  background-color: #007bff; /* Change the background color on hover */
+  color: #fff; /* Change the text color on hover */
+}
+
+/* Apply a subtle transition to the dropdown menu */
+.navbar-list li:hover .navbar-dropdown {
+  display: block;
+}
+
+/* Adjust the padding and spacing of the dropdown items */
+.navbar-dropdown a {
+  padding: 10px 20px; /* Adjust padding as needed */
+  margin: 5px 0; /* Adjust margin as needed */
+}
+
+
+
+
+/*-----------------------------------*\
+  #FOOTER
+\*-----------------------------------*/
+
+.footer {
+  background-color: var(--charcoal);
+  padding-block: 60px 100px;
+  color: var(--light-gray);
+  width: 100%;
+  padding: 20px; 
+}
+
+.footer-brand .footer-text { margin-block: 20px; }
+
+.footer .social-list { color: var(--white); }
+
+.footer-list-title {
+  color: var(--white);
+  margin-block-end: 16px;
+}
+
+.footer-link {
+  padding-block: 4px;
+  transition: var(--transition-1);
+}
+
+.footer-link:is(:hover, :focus-visible) { color: var(--violet-blue-crayola); }
+
+.input-wrapper {
+  position: relative;
+  margin-block-start: 25px;
+}
+
+.input-field {
+  background-color: var(--white_a3);
+  color: var(--light-gray);
+  font-size: var(--fs-7);
+  padding: 12px 16px;
+  border: 1px solid var(--dark-cornflower-blue_a7);
+  border-radius: var(--radius-6);
+  box-shadow: var(--shadow-3);
+  outline: none;
+}
+
+.input-field::placeholder { color: inherit; }
+
+.submit-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 0 var(--radius-6) var(--radius-6) 0;
+  background-color: var(--violet-blue-crayola);
+  color: var(--white);
+  padding-inline: 24px;
+  font-weight: var(--fw-700);
+}
+
+.footer .grid-list { grid-template-columns: repeat(4, 1fr); }
+
+address.footer-text {
+    padding-inline-end: 100px;
+    margin-block-end: 16px;
+  }
+
+ 
+
+
+
+
+
+/*-----------------------------------*\
+  #MEDIA QUERIES
+\*-----------------------------------*/
+
+/**
+ * responsive for large than 575px screen
+ */
+
+@media (min-width: 575px) {
+
+  /**
+   * REUSED STYLE
+   */
+
+  .container {
+    max-width: 540px;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  /**
+   * HEADER
+   */
+
+  .header .btn {
+    display: block;
+    margin-inline-start: auto;
+    padding: 8px 20px;
+  }
+
+  .header.active .btn {
+    background-color: var(--violet-blue-crayola);
+    border-color: var(--violet-blue-crayola);
+    color: var(--white);
+  }
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+  
+   /* * HEADER */
+   
+
+  .nav-open-btn,
+  .navbar > *:not(.navbar-list),
+  .overlay { display: none; }
+
+  .navbar,
+  .navbar.active {
+    all: unset;
+    display: block;
+    margin-inline: auto 24px;
+  }
+
+  .navbar-list {
+    display: flex;
+    gap: 30px;
+  }
+
+  .navbar-link {
+    color: var(--white);
+    transition: var(--transition-1);
+  }
+
+  .navbar-link:is(:hover, :focus-visible) { opacity: 0.7; }
+
+  .header.active .navbar-link { color: var(--charcoal); }
+
+  .header.active .navbar-link:is(:hover, :focus-visible) {
+    opacity: 1;
+    color: var(--violet-blue-crayola);
+  }
+
+  .header .btn { margin-inline-start: 0; }
+
+
+
+ 
+
+}
+
+
+
+
+
+/**
+ * responsive for large than 1200px screen
+ */
+
+@media (min-width: 1200px) {
+
+  /**
+   * REUSED STYLE
+   */
+
+  .container { max-width: 1140px; }
+
+
+ 
+
+ 
+ 
+
+}
+
+
+
+
+
+/**
+ * responsive for large than 1400px screen
+ */
+
+@media (min-width: 1400px) {
+
+  /**
+   * REUSED STYLE
+   */
+
+  .container { max-width: 1320px; }
+
+}
+
+
+.header {
+    position: fixed;
+    width: 100%;
+    background-color: #2c2f48;
+    z-index: 1000;
+    padding: 25px 0; 
+    margin-bottom: 30px; 
+    
+}
+
+.contact-section {
+    margin-top: 30px; /* Adjust the margin to create a 30px gap */
+    padding: 30px 20px; /* Add padding to the contact section for spacing */
+    background-color: #363953;
+    color: #fff;
+}
+
+
+.contact-section {
+  padding-top: 50px; /* Adjust the padding to create the desired gap below the header */
+}
+
+/* Margin for the header */
+.header {
+  margin-bottom: 50px; /* Adjust as needed */
+}
+
+/* Margin for the contact section */
+section {
+  margin-top: 95px; /* Adjust to match the margin-bottom of the header */
+  margin-bottom: 40px; /* Adjust as needed */
+}
+
+
+/* Padding for the footer */
+footer {
+  padding-top: 20px; /* Adjust as needed */
+}
+/* Add this CSS to your stylesheet */
+
+/* Style for input wrappers */
+.input-wrap {
+  position: relative;
+}
+
+/* Style for icons inside input wrappers */
+.input-wrap i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px; /* Adjust the right position of the icon */
+}
+
+/* Adjust input padding to accommodate the icon */
+.input-wrap input, .input-wrap textarea {
+  padding-right: 30px; /* Adjust as needed */
+}
+
+
+#video-banner {
+    margin-top: 10px; /* Adjust this value to reduce the gap */
+    padding-top: 0; /* Adjust this value to reduce the gap */
+}
+/* Add responsive styles for smaller screens */
+
+@media (max-width: 767px) {
+  .footer {
+    padding-block: 30px;
+    text-align: center;
+  }
+}
+
+/* Additional media queries for further responsiveness if needed */
+
+@media (max-width: 575px) {
+  .footer {
+    padding-block: 20px;
+  }
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    margin-top: 10px;
+  }
+}
+
+/* for scrollbar for all page */
+body, html {
+  overflow-x: hidden;
+}
+
+     /* header logo */
+     .logo-text {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 70px; /* Adjust the margin as needed to position the text */
+  color: white; /* Text color */
+  font-weight: bold; /* Text style */
+}
+
+    </style>
+</head>
+<body>
+ <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo">
+        <img src="./assets/images/algologonew.svg" width="80" height="24" alt="AlgoPrime" class="logo-light">
+        <img src="./assets/images/algologonew.svg" width="80" height="24" alt="AlgoPrime" class="logo-dark">
+        <span class="logo-text"><b>ALGOPRIME INFOTECH</b></span>
+      </a>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+          <a href="#" class="logo">
+            <img src="./assets/images/logo-light.svg" width="74" height="24" alt="AlgoPrime home">
+          </a>
+
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+        <ul class="navbar-list">
+          <li>
+            <a href="index.html" class="navbar-link">Home</a>
+          </li>
+          <li>
+            <a href="about.html" class="navbar-link">About</a>
+          </li>
+          <li>
+            <a href="#" class="navbar-link">Labs</a>
+            <ul class="navbar-dropdown">
+              <li><a href="compiler.html">Online Compiler</a></li>
+              <li><a href="notes.html">Placement Notes</a></li>
+              <li><a href="Guid.html">Guidance</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="intrenship.html" class="navbar-link">Internship</a>
+          </li>
+          <li>
+            <a href="services.html" class="navbar-link">Services</a>
+          </li>
+        </ul>
+
+        <div class="wrapper">
+          <a href="mailto:info@email.com" class="contact-link">info@email.com</a>
+
+          <a href="tel:001234567890" class="contact-link">00 (123) 456 78 90</a>
+        </div>
+
+        <ul class="social-list">
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-dribbble"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <a href="contact.html" class="btn btn-primary">Contact Us</a>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+
+
+
+
+
+
+
+    <section id="video-banner" class="my-5 py-5">
+        
+    </section>
+  
+   
+    <!-- YouTube Guidance -->
+    <div class="title-containerti">
+        <div class="title">YouTube Guidance</div>
+    </div>
+
+        <div class="containerti">
+            <div class="drop" style="--clr: #ff0f5b;">
+                <div class="content">
+                    <h2>01</h2>
+                    <h3>Making Attractive YouTube Thumbnails</h3>
+                    <p>Create stunning YouTube thumbnails that instantly grab attention.</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+        <div class="drop" style="--clr: #be01fe;">
+            <div class="content">
+                <h2>02</h2>
+                <h3>Search Engine Optimization Guidance</h3>
+                <p>Master SEO to enhance website visibility and improve search rankings with expert strategies.</p>
+                <a href="#">Read More</a>
+            </div>
+        </div>
+
+        <div class="drop" style="--clr:#01b4ff;">
+            <div class="content">
+                <h2>03</h2>
+                <h3>YouTube Video Editing Mastery</h3>
+                <p>Create captivating YouTube videos with expert editing techniques. Elevate your content to the next level!</p>
+                <a href="#">Read More</a>
+            </div>
+        </div>
+        
+        
+    <section id="parallax-banner" class="my-5 py-5">
+        <div class="parallax-content">
+          <h1 class="parallax-text">The Ultimate Guidance for Success With AlgoPrime.</h1>
+          <div class="button-container">
+            <a href="contact.html" class="contact-button">Contact Us</a>
+          </div>
+        </div>
+      </section>
+
+    <!-- Paper Publication Guidance -->
+    <div class="title-containerti">
+        <div class="title">Paper Publication Guidance</div>
+    </div>
+    <div class="containerti">
+        <div class="drop" style="--clr: #ff0f5b;">
+            <div class="content">
+                <h2>04</h2>
+                <h3>Discovering Exciting Technical Topics</h3>
+                <p>Unlock a world of fascinating technical subjects to explore. Find the best topics for your projects.</p>
+                <a href="#">Read More</a>
+            </div>
+        </div>
+        <div class="drop" style="--clr: #be01fe;">
+            <div class="content">
+                <h2>05</h2>
+                <h3>Creating Outstanding Content</h3>
+                <p>Elevate your content creation skills to new heights. Get expert guidance on crafting compelling materials.</p>
+                <a href="#">Read More</a>
+            </div>
+        </div>
+        <div class="drop" style="--clr:#01b4ff;">
+            <div class="content">
+                <h2>06</h2>
+                <h3>Publishing Your Research</h3>
+                <p>Learn how to successfully publish your research papers in reputable journals. Get recognized for your work.</p>
+                <a href="#">Read More</a>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- LinkedIn and Github Strategies -->
+    <div class="title-containerti">
+      <div class="title">LinkedIn and GitHub Strategies</div>
+  </div>
+    <div class="containerti">
+        <div class="drop" style="--clr: #ff0f5b;">
+            <div class="content">
+                <h2>07</h2>
+                <h3>Mastering GitHub: Build and Deploy Projects for Free</h3>
+                <p>Unlock the power of GitHub and learn how to create an attractive GitHub profile. Deploy your projects for free and showcase your skills.</p>
+                <a href="#">Read More</a>
+            </div>
+        </div>
+
+        <div class="drop" style="--clr: #be01fe;">
+            <div class="content">
+                <h2>08</h2>
+                <h3>Elevate Your LinkedIn Profile</h3>
+                <p>Discover the secrets to building a standout LinkedIn profile. Enhance your professional presence and connect with opportunities.</p>
+                <a href="#">Read More</a>
+            </div>
+        </div>
+        <div class="drop" style="--clr:#01b4ff;">
+            <div class="content">
+                <h2>09</h2>
+                <h3>Unlocking the Potential of LinkedIn and GitHub</h3>
+                <p>Explore the combined power of LinkedIn and GitHub to advance your career and showcase your projects. Connect with like-minded professionals.</p>
+                <a href="#">Read More</a>
+            </div>
+        </div>
+    </div>
+
+     <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+    <div class="container grid-list">
+
+      <div class="footer-brand">
+
+        <a href="#" class="logo">
+          <img src="./assets/images/algologonew.svg" width="80" height="24" alt="AlgoPrime" class="logo-light">
+        
+          <span class="logo-text"><b>ALGOPRIME INFOTECH</b></span>
+        </a>
+  
+
+        <p class="footer-text">
+          &copy; 2023 AlgoPrime. <br> All rights reserved.
+        </p>
+
+        <ul class="social-list">
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.instagram.com/algo_prime/" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href=" https://wa.me/918421746042?text=Hi,Welcome to AlgoPrime" target="_blank" class="social-link">
+              <ion-icon name="logo-whatsapp"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <ul class="footer-list">
+
+        <li>
+          <p class="h4 footer-list-title">Get in Touch</p>
+        </li>
+
+        <li>
+          <address class="footer-text">
+            Ichalkaranji,Maharashtra 416-115.
+          </address>
+        </li>
+
+        <li>
+          <a href="mailto:info@email.com" class="footer-link">algoPrime.info@gmail.com</a>
+        </li>
+
+        <li>
+          <a href="tel:001234567890" class="footer-link">00 (123) 456 78 90</a>
+        </li>
+
+      </ul>
+
+      <ul class="footer-list">
+
+        <li>
+          <p class="h4 footer-list-title">Learn More</p>
+        </li>
+
+        <li>
+          <a href="index.html" class="footer-link">Home</a>
+        </li>
+
+        <li>
+          <a href="about.html" class="footer-link">About Us</a>
+        </li>
+
+        <li>
+          <a href="#" class="footer-link">Labs</a>
+        </li>
+
+        <li>
+          <a href="intrenship.html" class="footer-link">Internship</a>
+        </li>
+
+        <li>
+          <a href="services.html" class="footer-link">Services</a>
+        </li>
+        
+
+      </ul>
+
+      <div class="footer-list">
+
+        <p class="h4 footer-list-title">Our Newsletter</p>
+
+        <p class="footer-text">
+          Subscribe to our newsletter to get our news & deals delivered to you.
+        </p>
+
+        <form action="" class="input-wrapper">
+          <input type="email" name="email_address" placeholder="Email Address" required class="input-field">
+
+          <button type="submit" class="submit-btn">Join</button>
+        </form>
+
+      </div>
+
+    </div>
+  </footer>
+    
+</body>
+</html>

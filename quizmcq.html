@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="quizmcq.css">
+    <title>Quiz App</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
+*{
+  box-sizing: border-box;
+}
+body {
+  background-color: #b8c6db;
+  background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7f7 100%);
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.quiz-container {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
+  width: 600px;
+  overflow: hidden;
+  position: relative;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.timer {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #3498db; /* Change the color to your desired color */
+  animation: pulse 1s infinite alternate;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  animation: pulse 1s infinite alternate;
+}
+.quiz-header{
+  padding: 4rem;
+}
+  
+h2{
+  padding: 1rem;
+  text-align: center;
+  margin: 0;
+}
+ul{
+  list-style-type: none;
+  padding: 0;
+}
+ul li{
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+ul li label{
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out; 
+}
+input[type="radio"]:hover + label {
+    background-color: #c4b704;
+    color: #fff; 
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+
+
+
+
+button {
+    background-color: #04adc4;
+    color: #fff;
+    border: none;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-family: inherit;
+    padding: 1.3rem;
+    transition: background-color 0.2s;
+   
+  }
+  
+  button:hover {
+    background-color: #c4b704;
+  }
+  
+  button:focus {
+    outline: none;
+    background-color: #44b927;
+  }
+  
+/* Animations */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+  }
+  100% {
+      transform: scale(1.1);
+  }
+}
+.error-message-container {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 0, 0, 0.8);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
+  animation: fade-in 0.5s ease-out;
+}
+
+.error-message {
+  font-size: 16px;
+}
+
+.fade-out {
+  animation: fade-out 0.5s ease-out forwards;
+}
+@keyframes fade-out {
+  from {
+      opacity: 1;
+  }
+  to {
+      opacity: 0;
+  }
+}
+
+
+.container1-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  border: 2px solid #000; /* Adding border for visibility */
+  background-color: #f9f9f9; /* Light gray background */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+  border-radius: 10px; /* Rounded corners */
+  max-width: 600px; /* Limit maximum width */
+  margin: 0 auto; /* Center horizontally */
+}
+
+
+.container1-box h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.container1-box p {
+  font-size: 1.5em;
+  margin: 20px 0;
+  display: block; 
+}
+.container1-box .bullet-point {
+  font-size: 1.5em;
+  margin: 20px 0;
+  display: block;
+  padding-left: 20px; /* Adjust the padding to your preference */
+}
+.conditions {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+.container1-box button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.container1-box button:hover {
+  background-color: #2980b9;
+}
+
+.paragraphs-column {
+  text-align: left;
+}
+
+
+.paragraphs-column p {
+  font-size: 1.5em;
+  margin: 10px 0;
+  display: block;
+}
+
+.start-button {
+  font-size: 1.2em;
+  padding: 10px 20px;
+  background-color: #3498db; /* Blue color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.start-button:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+}
+.welcome-heading {
+  font-family: 'Arial', sans-serif;
+  font-size: 2.5em;
+  color: #336699;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.emoji {
+  font-size: 1.5em;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+</style>
+<body>
+  
+    <div class="container1-box">
+        <h1 class="welcome-heading">Welcome to AlgoPrime InfoTech <span class="emoji">👋</span></h1>
+        <h2>Quiz Game ⭐</h2>
+        <p><span>&#128214;</span> Terms and Conditions:</p>
+        <p>&bullet; In this quiz game, you have 20 questions.</p>
+        <p>&bullet; You have to attempt all of these questions.</p>
+        <p>&bullet; Each question has 30 seconds to solve.</p>
+        <button class="start-button" onclick="startQuiz()">Start</button>
+    </div>
+
+    <div class="quiz-container" id="quiz" style="display: none;">
+  <div id="timer" class="timer"> <span id="time">30 Sec</span></div>
+    <div class="quiz-header">
+      <h2 id="question">Question Text</h2>
+      <ul>
+        <li>
+          <input type="radio" name="answer" id="a" class="answer">
+          <label for="a" id="a_text">Answer</label>
+        </li>
+        <li>
+          <input type="radio" name="answer" id="b" class="answer">
+          <label for="b" id="b_text">Answer</label>
+        </li>
+        <li>
+          <input type="radio" name="answer" id="c" class="answer">
+          <label for="c" id="c_text">Answer</label>
+        </li>
+        <li>
+          <input type="radio" name="answer" id="d" class="answer">
+          <label for="d" id="d_text">Answer</label>
+        </li>
+      </ul>
+    </div>
+    <button id="submit">Submit</button>
+  </div>
+
+
+
+  <script src="script.js"></script>
+  <script>
+    
+const quizData = [
+    {
+        question: "Who is the father of HTML?",
+        a: "Rasmus Lerdorf",
+        b: " Tim Berners-Lee",
+        c: "Brendan Eich",
+        d: "Sergey Brin",
+        correct: "b",
+    },
+    {
+        question: "What is the correct syntax of doctype in HTML5?",
+        a: "</doctype html>",
+        b: "<doctype html>",
+        c: "<doctype html!>",
+        d: "<!doctype html>",
+        correct: "d",
+    },
+    {
+        question: "What does HTML stand for?",
+        a: "Hypertext Markup Language",
+        b: "Hypertext Markdown Language",
+        c: "Hyperloop Machine Language",
+        d: "Helicopters Terminals Motorboats Lamborginis",
+        correct: "a",
+    },
+    {
+        question: "Which of the following tag is used for inserting the largest heading in HTML?",
+        a: " head",
+        b: "<h1>",
+        c: "<h6>",
+        d: "heading",
+        correct: "b",
+    },
+    {
+
+        question:"In which part of the HTML metadata is contained?",
+        a: "head tag",
+        b:"title tag",
+        c:"html tag",
+        d:"body tag",
+         correct:"a"
+    },
+
+    {
+        question: "Which character is used to represent when a tag is closed in HTML?",
+        a:"#",
+        b:"!",
+        c:"/",
+        d:"?",
+        correct:"c",
+    },
+
+    {
+        question:"HTML tags are enclosed in",
+        a:"# and #",
+        b:"{ and }",
+        c:"! and !",
+        d:"< and >",
+        correct:"d",
+    },
+
+    {
+       question:"Which of the following tag is used to embed css in html page?",
+        a:"<css>",
+        b:"<!DOCTYPE html>",
+        c:"<script>",
+        d:"<style>",
+        correct:"d",
+
+    },
+    {
+        question:"Which of the following CSS selectors are used to specify a group of elements?", 
+         a:"tag",
+         b:"id",
+         c:"class",
+         d:"both class and tag",
+         correct:"c",
+ 
+     },
+
+     {
+        question:"Which of the following has introduced text, list, box, margin, border, color, and background properties?", 
+         a:"HTML",
+         b:"PHP",
+         c:"CSS",
+         d:"Ajax",
+         correct:"c",
+ 
+     },
+
+     {
+        question:"Which of the following CSS framework is used to create a responsive design?",
+         a:"Django",
+        b:"rails",
+        c:"larawell",
+        d:"bootstrap",
+         correct:"d"
+    },
+
+    {
+        question:"Which of the following type of HTML tag is used to define an internal style sheet?",
+         a:"<script>",
+        b:"<link>",
+        c:"<class>",
+        d:"<style>",
+         correct:"d"
+    },
+
+    {
+        question:"Which of the following CSS Property sets the stacking order of positioned elements?",
+        a:"y-index",
+        b:"z-index",
+        c:"x-index",
+        d:"all of above",
+         correct:"b"
+    },
+  //js//
+
+  {
+    question:"What is JavaScript?",
+    a:"JavaScript is a scripting language used to make the website interactive",
+    b:"JavaScript is an assembly language used to make the website interactive",
+    c:"JavaScript is a compiled language used to make the website interactive",
+    d:"all of above",
+     correct:"a"
+},
+
+{
+    question:"Which of the following is correct about JavaScript?",
+    a:"JavaScript is an Object-Based language",
+    b:"JavaScript is Assembly-language",
+    c:"JavaScript is an Object-Oriented language",
+    d:"JavaScript is a High-level language",
+     correct:"a"
+},
+{
+    question :"Which of the following is not javascript data types?",
+    a:"Null type",
+    b:"Undefined type",
+    c:"Number type",
+    d:"All of above",
+    correct:"d",
+
+},
+
+{
+    question:"Which of the following can be used to call a JavaScript Code Snippet?",
+    a:"Function/Method",
+    b:"Preprocessor",
+    c:"Triggering Event",
+    d:"RMI",
+    correct:"a",
+
+},
+{
+    question:"Which of the following scoping type does JavaScript use?",
+    a:"Squential",
+    b:"Segmental",
+    c:"Lexical",
+    d:"Literal",
+    correct:"c",
+
+
+},
+
+{
+    question:"The “var” and “function” are __________",
+    a:"Keywords",
+    b:"Declaration Statement",
+    c:"Data Type",
+    d:"Prototypes",
+    correct:"b"
+
+},
+
+{
+    question:" In the JavaScript, which one of the following is not considered as an error:",
+    a:"Syntax error",
+    b:"Missing Semicolon",
+    c:"Division by zero",
+    d:"Missing Bracket",
+    correct:"c",
+},
+
+
+
+];const quiz = document.getElementById('quiz');
+const answerEls = document.querySelectorAll('.answer');
+const questionEl = document.getElementById('question');
+const a_text = document.getElementById('a_text');
+const b_text = document.getElementById('b_text');
+const c_text = document.getElementById('c_text');
+const d_text = document.getElementById('d_text');
+const submitBtn = document.getElementById('submit');
+const timerDisplay = document.getElementById('time');
+const timePerQuestion = 30; // Time per question in seconds
+let currentQuiz = 0;
+let score = 0;
+let timeRemaining = timePerQuestion;
+
+function loadQuiz() {
+    deselectAnswers();
+    const currentQuizData = quizData[currentQuiz];
+    questionEl.innerText = currentQuizData.question;
+    a_text.innerText = currentQuizData.a;
+    b_text.innerText = currentQuizData.b;
+    c_text.innerText = currentQuizData.c;
+    d_text.innerText = currentQuizData.d;
+    timeRemaining = timePerQuestion; // Reset the timer for each question
+}
+
+function deselectAnswers() {
+    answerEls.forEach(answerEl => (answerEl.checked = false));
+}
+
+function getSelected() {
+    let answer;
+    answerEls.forEach(answerEl => {
+        if (answerEl.checked) {
+            answer = answerEl.id;
+        }
+    });
+    return answer;
+}
+
+function updateTimer() {
+    const minutes = Math.floor(timeRemaining / 60);
+    const seconds = timeRemaining % 60;
+    const displayMinutes = minutes.toString().padStart(2, '0');
+    const displaySeconds = seconds.toString().padStart(2, '0');
+    timerDisplay.innerText = `Time: ${displayMinutes}:${displaySeconds}`;
+
+    if (timeRemaining <= 0) {
+        submitQuiz();
+    } else {
+        timeRemaining--;
+    }
+}
+
+function stopTimer() {
+    clearInterval(timer);
+}
+
+function startTimer() {
+    timer = setInterval(updateTimer, 1000);
+}
+
+function submitQuiz() {
+    stopTimer(); // Stop the timer when submitting the quiz
+    quiz.innerHTML = `
+        <h2>Time's up! You answered ${score}/${quizData.length} questions correctly</h2>
+        <button onclick="location.reload()">Reload</button>
+    `;
+}
+
+
+submitBtn.addEventListener('click', () => {
+    const answer = getSelected();
+    if (!answer) {
+        alert('Please select an answer before submitting.');
+        return;
+    }
+
+    if (answer) {
+        if (answer === quizData[currentQuiz].correct) {
+            score++;
+        }
+        currentQuiz++;
+        if (currentQuiz < quizData.length) {
+            loadQuiz();
+            startTimer(); // Start the timer for the next question
+        } else {
+            quiz.innerHTML = `
+            <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+            <button onclick="location.reload()">Reload</button>
+            `;
+        }
+    }
+});
+// ... (previous code)
+
+answerEls.forEach(answerEl => {
+    answerEl.addEventListener('click', () => {
+        const selectedAnswer = answerEl.id;
+        // Display a message when an answer is selected
+        showSelectedAnswerMessage(selectedAnswer);
+    });
+});
+
+function showSelectedAnswerMessage(answer) {
+    const message = `You selected answer ${answer.toUpperCase()}.`;
+    showErrorMessage(message);
+}
+function showErrorMessage(message) {
+    const errorContainer = document.createElement('div');
+    errorContainer.classList.add('error-message-container');
+    errorContainer.innerHTML = `<div class="error-message">${message}</div>`;
+    document.body.appendChild(errorContainer);
+
+    setTimeout(() => {
+        errorContainer.classList.add('fade-out');
+        setTimeout(() => {
+            errorContainer.remove();
+        }, 500);
+    }, 2000);
+}
+
+
+submitBtn.addEventListener('click', () => {
+    const answer = getSelected();
+    if (!answer) {
+        showErrorMessage('Please select an answer before submitting.');
+        return;
+    }
+
+    // ... Rest of the submission logic
+    // Check the answer and update the quiz accordingly
+
+    if (answer) {
+        if (answer === quizData[currentQuiz].correct) {
+            score++;
+        }
+        currentQuiz++;
+        if (currentQuiz < quizData.length) {
+            loadQuiz();
+            startTimer(); // Start the timer for the next question
+        } else {
+            quiz.innerHTML = `
+            <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+            <button onclick="location.reload()">Reload</button>
+            `;
+        }
+    }
+});
+// Load the first question and start the timer
+loadQuiz();
+startTimer();
+
+
+// new js 
+
+function startQuiz() {
+        const container1Box = document.querySelector('.container1-box');
+        const quizContainer = document.getElementById('quiz');
+        
+        container1Box.style.display = 'none';
+        quizContainer.style.display = 'block';
+    }
+    
+
+
+  </script>
+</body>
+</html>

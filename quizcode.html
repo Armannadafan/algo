@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+:root {
+--charcoal: hsla(218, 22%, 26%, 1);
+--blue-crayola: hsla(219, 72%, 56%, 1);
+--violet-blue-crayola: hsla(234, 50%, 64%, 1);
+}
+/* Reset some default styles */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    margin-bottom: 20px;
+    color: #fff; 
+}
+h1:hover{
+    color: black;
+}
+
+body {
+    background-color: #f3f3f3;
+    font-family: Arial, sans-serif;
+}
+
+
+header {
+    background-color: var(--blue-crayola);
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Style the main content */
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the individual tasks */
+.task {
+    display: none;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.active-task {
+    display: block;
+}
+
+h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1em;
+}
+
+/* Style the code editor textarea */
+.code-editor textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+/* Style the submit button */
+.code-editor button {
+    background-color: var(--violet-blue-crayola);
+    color: #fff;
+    padding: 12px 24px; /* Adjusted padding for a more prominent button */
+    border: none;
+    border-radius: 8px; /* Rounded corners for a softer look */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Transition for hover effect and slight scale-up */
+    font-weight: bold;
+}
+
+.code-editor button:hover {
+    background-color: #357ABD; /* Darker shade on hover for a subtle effect */
+    transform: scale(1.05); /* Slight scale-up on hover for an interactive feel */
+}
+
+.code-editor button:active {
+    transform: scale(0.95); /* Slight scale-down on click for a button press effect */
+}
+.code-editor button:hover {
+    background-color: #555;
+}
+
+/* Style the output message */
+.output {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Style the paging buttons */
+.paging {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.paging-button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.paging-button:hover {
+    background-color: #555;
+}
+
+/* Style the icons */
+.paging-button i {
+    margin-right: 5px; /* Add some spacing between the icon and text */
+    font-size: 16px; /* Adjust the icon size */
+}
+
+/* Rest of your existing CSS styles */
+/* ... */
+
+/* Style the "Next" and "Previous" buttons */
+.button-container button {
+    background-color: #007bff; /* Blue background color */
+    color: #fff; /* White text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+.button-container button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.button-container button:first-child {
+    margin-right: 10px; /* Add some space between "Previous" and "Next" */
+}
+
+.button-container button:last-child {
+    margin-left: 10px; /* Add some space between "Previous" and "Next" */
+}
+.paging {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.paging-button {
+    background-color: #007bff; /* Blue background color */
+    color: #fff; /* White text color */
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Added transform for a slight animation */
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(71, 20, 20, 0.1); /* Add a subtle box shadow */
+}
+
+.paging-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slight scale-up on hover for an interactive feel */
+}
+.paging-button:active {
+    transform: scale(0.95); /* Slight scale-down on click for a button press effect */
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.quiz-container {
+    width: 80%;
+    height: 400px; /* Fixed height for the quiz container */
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+#question-container {
+    height: 100px; /* Fixed height for the question container */
+    margin-bottom: 20px;
+}
+
+#options-container {
+    height: 200px; /* Fixed height for the options container */
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%; /* Make buttons full width */
+}
+
+#next-button {
+    display: none;
+}
+
+#score-container {
+    font-weight: bold;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .quiz-container {
+        width: 90%;
+        height: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .quiz-container {
+        width: 95%;
+        height: auto;
+    }
+}
+
+
+/* Add your existing CSS styles here */
+
+/* Add your existing CSS styles here */
+
+/* Responsive styles */
+@media (max-width: 767px) {
+  body {
+    font-size: 14px; /* Adjust font size for better readability on smaller screens */
+  }
+
+  .quiz-container {
+    width: 95%; /* Adjust the width to fit the screen */
+    margin: 20px auto; /* Center the quiz container */
+    padding: 10px; /* Add some padding */
+  }
+
+  .task {
+    width: 100%; /* Make tasks take full width */
+    margin-bottom: 15px; /* Add some spacing between tasks */
+  }
+
+  .code-editor textarea {
+    height: 80px; /* Reduce the height of the code editor textarea */
+  }
+
+  .code-editor button {
+    width: 100%; /* Make buttons full width */
+  }
+
+  .button-container {
+    flex-direction: column; /* Stack buttons in a column */
+  }
+
+  .paging {
+    flex-wrap: wrap; /* Allow pagination buttons to wrap on smaller screens */
+  }
+
+  .paging-button {
+    margin: 5px; /* Add some spacing between paging buttons */
+  }
+}
+
+/* Additional adjustments for very small screens */
+@media (max-width: 480px) {
+  .quiz-container {
+    width: 90%; /* Adjust the width to fit the screen */
+  }
+}
+
+
+
+
+/* Add your existing CSS styles here */
+
+body {
+  /* Existing styles */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+
+/* Existing styles */
+
+/* Responsive styles */
+@media (max-width: 767px) {
+  /* Existing responsive styles */
+
+  main {
+    padding: 10px; /* Adjusted padding for smaller screens */
+  }
+}
+
+/* Additional adjustments for very small screens */
+@media (max-width: 480px) {
+  /* Existing adjustments for very small screens */
+
+  main {
+    padding: 5px; /* Further adjusted padding for very small screens */
+  }
+}
+
+
+
+    </style>
+    <title>Knowledge Game</title>
+</head>
+<body>
+    <header>
+        <h1>Code Crackers</h1>
+    </header>
+    <main>
+        <section class="task active-task" id="task1">
+            <h2>Task 1: HTML Basics</h2>
+            <p>Write the HTML code to create a heading with the text "Hello, World!"</p>
+            <div class="code-editor">
+                <textarea id="task1-code"></textarea>
+                <button onclick="checkTask(1)">Submit</button>
+            </div>
+            <div class="output" id="task1-output"></div>
+        </section>
+        
+        <!-- Add more tasks here -->
+        <section class="task" id="task2">
+            <h2>Task 2: Add a Paragraph</h2>
+            <p>Write the HTML code to create a paragraph with any text you like.</p>
+            <div class="code-editor">
+                <textarea id="task2-code"></textarea>
+                <button onclick="checkTask(2)">Submit</button>
+            </div>
+            <div class="output" id="task2-output"></div>
+        </section>
+
+        <section class="task" id="task3">
+            <h2>Task 3: Create an Unordered List</h2>
+            <p>Write the HTML code to create an unordered list with three list items.</p>
+            <div class="code-editor">
+                <textarea id="task3-code"></textarea>
+                <button onclick="checkTask(3)">Submit</button>
+            </div>
+            <div class="output" id="task3-output"></div>
+        </section>
+          <!-- Task 4: CSS Styling -->
+          <section class="task" id="task4">
+            <h2>Task 4: CSS Styling</h2>
+            <p>Style the following HTML code to make the text red and centered:</p>
+            <pre>
+&lt;div id="styled-div"&gt;
+    This is styled text.
+&lt;/div&gt;
+            </pre>
+            <div class="code-editor">
+                <textarea id="task4-code"></textarea>
+                <button onclick="checkTask(4)">Submit</button>
+            </div>
+            <div class="output" id="task4-output"></div>
+        </section>
+
+        <!-- Task 5: JavaScript Function -->
+        <section class="task" id="task5">
+            <h2>Task 5: JavaScript Function</h2>
+            <p>Write a JavaScript function that takes two numbers as input and returns their sum. Name the function "addNumbers".</p>
+            <div class="code-editor">
+                <textarea id="task5-code"></textarea>
+                <button onclick="checkTask(5)">Submit</button>
+            </div>
+            <div class="output" id="task5-output"></div>
+        </section>
+        <!-- Task 6: CSS Box Model -->
+<section class="task" id="task6">
+    <h2>Task 6: CSS Box Model</h2>
+    <p>Write CSS code to create a div element with a width of 200px, a height of 100px, a background color of blue, and a 10px solid red border.</p>
+    <div class="code-editor">
+        <textarea id="task6-code"></textarea>
+        <button onclick="checkTask(6)">Submit</button>
+    </div>
+    <div class="output" id="task6-output"></div>
+</section>
+
+<!-- Task 7: JavaScript Function with Parameters -->
+<section class="task" id="task7">
+    <h2>Task 7: JavaScript Function with Parameters</h2>
+    <p>Write a JavaScript function called "calculateArea" that takes the length and width of a rectangle as parameters and returns its area. Test the function with values length=5 and width=10.</p>
+    <div class="code-editor">
+        <textarea id="task7-code"></textarea>
+        <button onclick="checkTask(7)">Submit</button>
+    </div>
+    <div class="output" id="task7-output"></div>
+</section>
+
+<!-- Task 8: CSS Flexbox -->
+<section class="task" id="task8">
+    <h2>Task 8: CSS Flexbox</h2>
+    <p>Create an HTML structure with three div elements in a row using CSS Flexbox. Each div should have a width of 100px, a height of 100px, and a different background color (e.g., red, green, blue).</p>
+    <div class="code-editor">
+        <textarea id="task8-code"></textarea>
+        <button onclick="checkTask(8)">Submit</button>
+    </div>
+    <div class="output" id="task8-output"></div>
+</section>
+
+<!-- Add more tasks here -->
+<section class="task" id="task9">
+    <h2>Task 9: HTML Form</h2>
+    <p>Write the HTML code to create a simple form with a text input field and a submit button.</p>
+    <div class="code-editor">
+        <textarea id="task9-code"></textarea>
+        <button onclick="checkTask(9)">Submit</button>
+    </div>
+    <div class="output" id="task9-output"></div>
+</section>
+
+<section class="task" id="task10">
+    <h2>Task 10: CSS Styling</h2>
+    <p>Write CSS code to style a button with a red background and white text color.</p>
+    <div class="code-editor">
+        <textarea id="task10-code"></textarea>
+        <button onclick="checkTask(10)">Submit</button>
+    </div>
+    <div class="output" id="task10-output"></div>
+</section>
+
+<section class="task" id="task11">
+    <h2>Task 11: JavaScript Function</h2>
+    <p>Write a JavaScript function that calculates the sum of two numbers and returns the result.</p>
+    <div class="code-editor">
+        <textarea id="task11-code"></textarea>
+        <button onclick="checkTask(11)">Submit</button>
+    </div>
+    <div class="output" id="task11-output"></div>
+</section>
+
+<section class="task" id="task12">
+    <h2>Task 12: HTML Image</h2>
+    <p>Write the HTML code to display an image on the webpage. You can use any image URL.</p>
+    <div class="code-editor">
+        <textarea id="task12-code"></textarea>
+        <button onclick="checkTask(12)">Submit</button>
+    </div>
+    <div class="output" id="task12-output"></div>
+</section>
+
+<section class="task" id="task13">
+    <h2>Task 13: CSS Flexbox</h2>
+    <p>Write CSS code to create a simple flexbox layout with three equally sized columns.</p>
+    <div class="code-editor">
+        <textarea id="task13-code"></textarea>
+        <button onclick="checkTask(13)">Submit</button>
+    </div>
+    <div class="output" id="task13-output"></div>
+</section>
+<section class="task" id="task14">
+    <h2>Task 14: JavaScript Array</h2>
+    <p>Write JavaScript code to create an array named "fruits" containing the elements "apple," "banana," and "cherry."</p>
+    <div class="code-editor">
+        <textarea id="task14-code"></textarea>
+        <button onclick="checkTask(14)">Submit</button>
+    </div>
+    <div class="output" id="task14-output"></div>
+</section>
+
+<section class="task" id="task15">
+    <h2>Task 15: JavaScript Function</h2>
+    <p>Write a JavaScript function named "multiply" that takes two parameters (a and b) and returns their product.</p>
+    <div class="code-editor">
+        <textarea id="task15-code"></textarea>
+        <button onclick="checkTask(15)">Submit</button>
+    </div>
+    <div class="output" id="task15-output"></div>
+</section>
+
+<div class="button-container">
+    <button onclick="prevTask()">Previous</button>
+    <button onclick="nextTask()">Next</button>
+</div>
+<div class="paging">
+    <!-- Paging buttons from 1 to 15 -->
+    <button class="paging-button" onclick="goToPage(1)">1</button>
+    <button class="paging-button" onclick="goToPage(2)">2</button>
+    <button class="paging-button" onclick="goToPage(3)">3</button>
+    <!-- Add buttons for pages 4 to 15 -->
+    <button class="paging-button" onclick="goToPage(4)">4</button>
+    <button class="paging-button" onclick="goToPage(5)">5</button>
+    <button class="paging-button" onclick="goToPage(6)">6</button>
+    <button class="paging-button" onclick="goToPage(7)">7</button>
+    <button class="paging-button" onclick="goToPage(8)">8</button>
+    <button class="paging-button" onclick="goToPage(9)">9</button>
+    <button class="paging-button" onclick="goToPage(10)">10</button>
+    <button class="paging-button" onclick="goToPage(11)">11</button>
+    <button class="paging-button" onclick="goToPage(12)">12</button>
+    <button class="paging-button" onclick="goToPage(13)">13</button>
+    <button class="paging-button" onclick="goToPage(14)">14</button>
+    <button class="paging-button" onclick="goToPage(15)">15</button>
+</div>
+
+    </main>  
+
+
+      <script>
+    let currentTask = 1;
+
+function showTask(taskNumber) {
+    const tasks = document.querySelectorAll('.task');
+    tasks.forEach(task => {
+        task.classList.remove('active-task');
+    });
+
+    const taskToDisplay = document.getElementById(`task${taskNumber}`);
+    taskToDisplay.classList.add('active-task');
+
+    currentTask = taskNumber;
+}
+
+function nextTask() {
+    if (currentTask < 15) {
+        showTask(currentTask + 1);
+    }
+}
+
+function prevTask() {
+    if (currentTask > 1) {
+        showTask(currentTask - 1);
+    }
+}
+
+function checkTask(taskNumber) {
+    const codeTextarea = document.getElementById(`task${taskNumber}-code`);
+    const outputDiv = document.getElementById(`task${taskNumber}-output`);
+    const userCode = codeTextarea.value.trim().toLowerCase();
+    function generatePagingLayout() {
+            const pagingLayout = document.getElementById('paging-layout');
+            pagingLayout.innerHTML = '';
+
+            for (let i = 1; i <= 15; i++) {
+                const button = document.createElement('button');
+                button.textContent = i;
+                button.onclick = () => showTask(i);
+
+                if (i === currentTask) {
+                    button.classList.add('active-task');
+                }
+
+                pagingLayout.appendChild(button);
+            }
+        }
+
+
+    switch (taskNumber) {
+        case 1:
+        if (
+                userCode === '<h1>hello, world!</h1>' ||
+                userCode === '<h1>Hello, World!</h1>' ||
+                userCode === '<h1>Hello, world!</h1>' ||
+                userCode === '<h1>hello, World!</h1>'
+            )  {
+                outputDiv.textContent = 'Task 1: Correct! Well done!';
+                outputDiv.style.color = 'green';
+            } else {
+                outputDiv.textContent = 'Task 1: Incorrect. Try again.';
+                outputDiv.style.color = 'red';
+            }
+break;
+case 2:
+        const task2Code = '<p>your_paragraph_text_here</p>';
+        if (userCode === task2Code.toLowerCase()) {
+            outputDiv.textContent = 'Task 2: Correct! Well done!';
+            outputDiv.style.color = 'green';
+        } else {
+            outputDiv.textContent = 'Task 2: Incorrect. Try again.';
+            outputDiv.style.color = 'red';
+        }
+        break;
+
+    case 3:
+        const task3Code = '<ul><li>item 1</li><li>item 2</li><li>item 3</li></ul>';
+        if (userCode === task3Code.toLowerCase()) {
+            outputDiv.textContent = 'Task 3: Correct! Well done!';
+            outputDiv.style.color = 'green';
+        } else {
+            outputDiv.textContent = 'Task 3: Incorrect. Try again.';
+            outputDiv.style.color = 'red';
+        }
+        break;
+
+
+        case 4:
+            const task4Code = '<style>\n#styled-div {\n    color: red;\n    text-align: center;\n}\n</style>';
+            if (userCode === task4Code.toLowerCase()) {
+                outputDiv.textContent = 'Task 4: Correct! Well done!';
+                outputDiv.style.color = 'green';
+            } else {
+                outputDiv.textContent = 'Task 4: Incorrect. Try again.';
+                outputDiv.style.color = 'red';
+            }
+            break;
+
+        case 5:
+            const task5Code = 'function addNumbers(num1, num2) {\n    return num1 + num2;\n}';
+            if (userCode === task5Code.toLowerCase()) {
+                outputDiv.textContent = 'Task 5: Correct! Well done!';
+                outputDiv.style.color = 'green';
+            } else {
+                outputDiv.textContent = 'Task 5: Incorrect. Try again.';
+                outputDiv.style.color = 'red';
+            }
+            break;
+
+        // Add more cases for additional tasks here
+        case 6:
+            const task6Code = '/* Your JavaScript code for Task 6 here */';
+            if (userCode === task6Code.toLowerCase()) {
+                outputDiv.textContent = 'Task 6: Correct! Well done!';
+                outputDiv.style.color = 'green';
+            } else {
+                outputDiv.textContent = 'Task 6: Incorrect. Try again.';
+                outputDiv.style.color = 'red';
+            }
+            break;
+
+        case 7:
+            const task7Code = '/* Your JavaScript code for Task 7 here */';
+            if (userCode === task7Code.toLowerCase()) {
+                outputDiv.textContent = 'Task 7: Correct! Well done!';
+                outputDiv.style.color = 'green';
+            } else {
+                outputDiv.textContent = 'Task 7: Incorrect. Try again.';
+                outputDiv.style.color = 'red';
+            }
+            break;
+
+        case 8:
+            const task8Code = '/* Your JavaScript code for Task 8 here */';
+            if (userCode === task8Code.toLowerCase()) {
+                outputDiv.textContent = 'Task 8: Correct! Well done!';
+                outputDiv.style.color = 'green';
+            } else {
+                outputDiv.textContent = 'Task 8: Incorrect. Try again.';
+                outputDiv.style.color = 'red';
+            }
+            break;
+// Task 9: HTML Form
+case 9:
+    const task9Code = '<form><input type="text" /><input type="submit" /></form>';
+    if (userCode === task9Code.toLowerCase()) {
+        outputDiv.textContent = 'Task 9: Correct! Well done!';
+        outputDiv.style.color = 'green';
+    } else {
+        outputDiv.textContent = 'Task 9: Incorrect. Try again.';
+        outputDiv.style.color = 'red';
+    }
+    break;
+
+// Task 10: CSS Styling
+case 10:
+    const task10Code = '/* Your CSS code for Task 10 here */';
+    if (userCode.toLowerCase().includes('background-color: red') && userCode.toLowerCase().includes('color: white')) {
+        outputDiv.textContent = 'Task 10: Correct! Well done!';
+        outputDiv.style.color = 'green';
+    } else {
+        outputDiv.textContent = 'Task 10: Incorrect. Try again.';
+        outputDiv.style.color = 'red';
+    }
+    break;
+
+// Task 11: JavaScript Function
+case 11:
+    const task11Code = '// Write your JavaScript function for Task 11 here\nfunction addNumbers(a, b) {\n  return a + b;\n}';
+    if (userCode === task11Code.toLowerCase()) {
+        outputDiv.textContent = 'Task 11: Correct! Well done!';
+        outputDiv.style.color = 'green';
+    } else {
+        outputDiv.textContent = 'Task 11: Incorrect. Try again.';
+        outputDiv.style.color = 'red';
+    }
+    break;
+
+// Task 12: HTML Image
+case 12:
+    const task12Code = '<img src="your_image_url_here" alt="Image" />';
+    if (userCode.toLowerCase().includes('<img') && userCode.toLowerCase().includes('src="') && userCode.toLowerCase().includes('" alt="Image" />')) {
+        outputDiv.textContent = 'Task 12: Correct! Well done!';
+        outputDiv.style.color = 'green';
+    } else {
+        outputDiv.textContent = 'Task 12: Incorrect. Try again.';
+        outputDiv.style.color = 'red';
+    }
+    break;
+
+// Task 13: CSS Flexbox
+case 13:
+    const task13Code = '/* Your CSS code for Task 13 here */';
+    if (userCode.toLowerCase().includes('display: flex') && userCode.toLowerCase().includes('flex: 1;')) {
+        outputDiv.textContent = 'Task 13: Correct! Well done!';
+        outputDiv.style.color = 'green';
+    } else {
+        outputDiv.textContent = 'Task 13: Incorrect. Try again.';
+        outputDiv.style.color = 'red';
+    }
+    break;
+    case 14:
+                    const task14Code = 'const fruits = ["apple", "banana", "cherry"];';
+                    if (userCode.toLowerCase() === task14Code.toLowerCase()) {
+                        outputDiv.textContent = 'Task 14: Correct! Well done!';
+                        outputDiv.style.color = 'green';
+                    } else {
+                        outputDiv.textContent = 'Task 14: Incorrect. Try again.';
+                        outputDiv.style.color = 'red';
+                    }
+                    break;
+
+                case 15:
+                    const task15Code = '// Write a JavaScript function that multiplies two numbers\nfunction multiply(a, b) {\n  return a * b;\n}';
+                    if (userCode.toLowerCase() === task15Code.toLowerCase()) {
+                        outputDiv.textContent = 'Task 15: Correct! Well done!';
+                        outputDiv.style.color = 'green';
+                    } else {
+                        outputDiv.textContent = 'Task 15: Incorrect. Try again.';
+                        outputDiv.style.color = 'red';
+                    }
+                    break;
+
+                    default:
+                    break;
+            }
+
+            showTask(currentTask);
+        }
+
+        // paging
+        function goToPage(page) {
+            if (page >= 1 && page <= totalPages) {
+                currentPage = page;
+                showTask(currentPage);
+                updatePagingButtons();
+            }
+        }
+
+        function goToPage(page) {
+    if (page >= 1 && page <= 15) {
+        currentTask = page;
+        showTask(currentTask);
+
+        // Scroll to the task section
+        const taskSection = document.getElementById(`task${currentTask}`);
+        taskSection.scrollIntoView({ behavior: 'smooth' });
+
+        // Apply a subtle bounce animation on click
+        const pagingButton = document.querySelector(`.paging-button:nth-child(${currentTask})`);
+        pagingButton.style.animation = 'bounce 0.3s ease';
+        setTimeout(() => {
+            pagingButton.style.animation = '';
+        }, 300);
+    }
+}
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"  />
+
+
+</head>
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+    * {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px; 
+    color: #fff;
+    background: #2c2f48;
+}
+
+.contact-containeraddi {
+    max-width: 960px;
+    margin: auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    background: #363953;
+    box-shadow: 0 0 1rem hsla(0, 0, 0, 0.16%);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.contact-containeraddi .form-containeraru,
+.contact-containeraddi .form-containeraru h3,
+.contact-containeraddi .contact-form input,
+.contact-containeraddi .contact-form textarea,
+.contact-containeraddi .contact-form .btn {
+    font-size: inherit; 
+}
+h3 {
+      font-weight: bold;
+      color: white;
+      text-align: center;
+    }
+
+    .form-containeraru{
+        padding: 20px;
+    }
+    .form-containeraru h3{
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+    .contact-form{
+       display: grid;
+       row-gap: 1rem; 
+    }
+    .contact-form input,
+    .contact-form textarea{
+        width: 100%;
+        border: none;
+        outline: none;
+        background: #2c2f48;
+        padding: 10px;
+        font-size:0.9rem;
+        color: #fff;
+        border-radius: 0.4rem;
+    }
+    .contact-form textarea{
+        resize: none;
+        height: 200px;
+
+    }
+    .contact-form .btn{
+        border: none;
+        outline: none;
+        background: #00dbde;
+        font-size: 1rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        cursor: pointer;
+
+
+    }
+    .contact-form .btn:hover{
+
+transform: 0.3s all linear;
+background: hsl(181, 100%, 44%,0.8);
+    }
+    .map iframe{
+width: 100%;
+height: 100%;
+    }
+
+    /* responsive */
+    @media(max-width:964px){
+        .contact-containeraddi{
+            margin: 0 auto;
+            width: 90%;
+        }
+    }
+    @media(max-width:700px){
+        .contact-containeraddi{
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-top: 20rem !important;
+        }
+    }
+    .map iframe{
+        height: 400px;
+    }
+    
+
+/*-----------------------------------*\
+  #CUSTOM PROPERTY
+\*-----------------------------------*/
+
+:root {
+
+/**
+ * colors
+ */
+ --violet-blue-crayola: hsla(234, 50%, 64%, 1);
+--dark-cornflower-blue_a7: hsla(214, 88%, 27%, 0.07);
+--white: hsla(0, 0%, 100%, 1);
+--white_a3: hsla(0, 0%, 100%, 0.03);
+--white_a8: hsla(0, 0%, 100%, 0.08);
+--white_a12: hsla(0, 0%, 100%, 0.12);
+--white_a70: hsla(0, 0%, 100%, 0.7);
+--cultured: hsla(220, 20%, 97%, 1);
+--lavender-web: hsla(233, 52%, 94%, 1);
+--cadet-blue-crayola: hsla(220, 12%, 70%, 1);
+--cadet-blue-crayola_a20: hsla(222, 23%, 71%, 0.2);
+--charcoal: hsla(218, 22%, 26%, 1);
+--raisin-black: hsla(216, 14%, 14%, 1);
+--light-gray: hsla(0, 0%, 79%, 1);
+--blue-crayola: hsla(219, 72%, 56%, 1);
+--black-coral: hsla(220, 12%, 43%, 1);
+/**
+ * typography
+ */
+--ff-manrope: 'Manrope', sans-serif;
+--fs-1: calc(2.7rem + 1.38vw);
+--fs-2: calc(2.6rem + .66vw);
+--fs-3: 2.2rem;
+--fs-4: 1.9rem;
+--fs-5: 1.
+
+
+/**
+ * box shadow
+ */
+
+--shadow-1: 0 0 20px hsla(216, 14%, 14%, 0.05);
+--shadow-2: 0 0 0 0.05rem hsla(214, 88%, 27%, 0.08), 0 0 1.25rem hsla(216, 14%, 14%, 0.06);
+--shadow-3: 0 0 1.25rem hsla(216, 14%, 14%, 0.04);
+
+/**
+ * border radius
+ */
+
+--radius-circle: 50%;
+--radius-pill: 100px;
+--radius-10: 10px;
+--radius-8: 8px;
+--radius-6: 6px;
+
+/**
+ * transition
+ */
+
+--transition-1: 0.25s ease;
+--transition-2: 0.5s ease;
+--transition-3: 0.3s ease-in-out;
+
+}
+
+
+
+
+
+
+
+
+/*-----------------------------------*\
+  #RESET
+\*-----------------------------------*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li { list-style: none; }
+
+a,
+img,
+span,
+input,
+button,
+ion-icon { display: block; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img { height: auto; }
+
+input,
+button {
+  background: none;
+  border: none;
+  font: inherit;
+}
+
+input { width: 100%; }
+
+button { cursor: pointer; }
+
+ion-icon { pointer-events: none; }
+
+address { font-style: normal; }
+
+html {
+  font-family: var(--ff-manrope);
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--white);
+  color: var(--black-coral);
+  font-size: 1.6rem;
+  line-height: 1.7;
+}
+
+body.nav-active { overflow: hidden; }
+
+::-webkit-scrollbar { width: 10px; }
+
+::-webkit-scrollbar-track { background-color: hsl(0, 0%, 98%); }
+
+::-webkit-scrollbar-thumb { background-color: hsl(0, 0%, 80%); }
+
+::-webkit-scrollbar-thumb:hover { background-color: hsl(0, 0%, 70%); }
+
+
+
+
+
+/*-----------------------------------*\
+  #REUSED STYLE
+\*-----------------------------------*/
+
+.container { padding-inline: 16px; }
+
+.social-list {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.social-link {
+  font-size: 2rem;
+  transition: var(--transition-1);
+}
+
+.social-link:is(:hover, :focus-visible) { transform: translateY(-3px); }
+
+.section { padding-block: var(--section-padding); }
+
+.has-bg-image {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+  color: var(--charcoal);
+  font-weight: var(--fw-700);
+  line-height: 1.3;
+}
+
+.h1 { font-size: var(--fs-1); }
+
+.h2 { font-size: var(--fs-2); }
+
+.h3 { font-size: var(--fs-3); }
+
+.h4 { font-size: var(--fs-4); }
+
+.h5 { font-size: var(--fs-6); }
+
+.btn {
+  color: var(--white);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-700);
+  border: 2px solid var(--white);
+  max-width: max-content;
+  padding: 12px 28px;
+  border-radius: var(--radius-pill);
+  transition: var(--transition-1);
+  will-change: transform;
+}
+
+.btn:is(:hover, :focus-visible) { transform: translateY(-4px); }
+
+.btn-primary,
+.btn-outline:is(:hover, :focus-visible) {
+  background-color: var(--white);
+  color: var(--charcoal);
+}
+
+.img-holder {
+  aspect-ratio: var(--width) / var(--height);
+  background-color: var(--light-gray);
+  overflow: hidden;
+}
+
+.img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.section-subtitle {
+  font-size: var(--fs-7);
+  text-transform: uppercase;
+  color: var(--violet-blue-crayola);
+  font-weight: var(--fw-700);
+  margin-block-end: 16px;
+}
+
+.grid-list {
+  display: grid;
+  gap: 25px;
+}
+
+.w-100 { width: 100%; }
+
+
+
+
+
+/*-----------------------------------*\
+  #HEADER
+\*-----------------------------------*/
+
+.header .btn { display: none; }
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff; /* Adjust the background color as needed */
+  z-index: 1000; /* Adjust z-index if needed */
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: -0px 10px; /* Adjust padding as needed */
+}
+
+/* Other styles for your elements within the header can be added here */
+
+.header.active {
+  background-color: var(--white);
+  position: fixed;
+  animation: slideIn 0.5s ease forwards;
+}
+
+@keyframes slideIn {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(0); }
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.header.active .logo-light,
+.header .logo-dark { display: none; }
+
+.header .logo-light,
+.header.active .logo-dark { display: block; }
+
+.nav-open-btn {
+  font-size: 3.5rem;
+  color: var(--white);
+}
+
+.header.active .nav-open-btn { color: var(--charcoal); }
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  background-color: var(--raisin-black);
+  color: var(--white);
+  max-width: 300px;
+  width: 100%;
+  height: 100vh;
+  padding: 30px;
+  padding-block-end: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  z-index: 2;
+  visibility: hidden;
+  transition: var(--transition-3);
+}
+
+.navbar.active {
+  visibility: visible;
+  transform: translateX(300px);
+}
+
+.navbar-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-close-btn {
+  background-color: var(--white_a8);
+  color: var(--white);
+  font-size: 2rem;
+  padding: 6px;
+  border-radius: var(--radius-circle);
+  transition: var(--transition-1);
+}
+
+.nav-close-btn ion-icon { --ionicon-stroke-width: 50px; }
+
+.nav-close-btn:is(:hover, :focus-visible) { background-color: var(--white_a12); }
+
+.navbar-list { margin-block-end: auto; }
+
+.navbar-link {
+  font-weight: var(--fw-700);
+  padding-block: 6px;
+}
+
+.contact-link { transition: var(--transition-1); }
+
+.contact-link:is(:hover, :focus-visible) { color: var(--violet-blue-crayola); }
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--raisin-black);
+  pointer-events: none;
+  opacity: 0;
+  transition: var(--transition-1);
+}
+
+.overlay.active {
+  pointer-events: all;
+  opacity: 0.8;
+}
+
+.navbar-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-list li {
+  display: inline-block;
+  margin-right: 20px;
+  position: relative;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: #333;
+}
+/* Add this CSS to your existing stylesheet */
+
+/* Navbar Dropdown Styles */
+.navbar-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 1;
+  min-width: 200px; /* Adjust the width as needed */
+  border-radius: 5px;
+}
+
+/* Style for the individual items in the dropdown */
+.navbar-dropdown a {
+  display: block;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect for dropdown items */
+.navbar-dropdown a:hover {
+  background-color: #007bff; /* Change the background color on hover */
+  color: #fff; /* Change the text color on hover */
+}
+
+/* Apply a subtle transition to the dropdown menu */
+.navbar-list li:hover .navbar-dropdown {
+  display: block;
+}
+
+/* Adjust the padding and spacing of the dropdown items */
+.navbar-dropdown a {
+  padding: 10px 20px; /* Adjust padding as needed */
+  margin: 5px 0; /* Adjust margin as needed */
+}
+
+
+
+
+/*-----------------------------------*\
+  #FOOTER
+\*-----------------------------------*/
+
+.footer {
+  background-color: var(--charcoal);
+  padding-block: 60px 100px;
+  color: var(--light-gray);
+}
+
+.footer-brand .footer-text { margin-block: 20px; }
+
+.footer .social-list { color: var(--white); }
+
+.footer-list-title {
+  color: var(--white);
+  margin-block-end: 16px;
+}
+
+.footer-link {
+  padding-block: 4px;
+  transition: var(--transition-1);
+}
+
+.footer-link:is(:hover, :focus-visible) { color: var(--violet-blue-crayola); }
+
+.input-wrapper {
+  position: relative;
+  margin-block-start: 25px;
+}
+
+.input-field {
+  background-color: var(--white_a3);
+  color: var(--light-gray);
+  font-size: var(--fs-7);
+  padding: 12px 16px;
+  border: 1px solid var(--dark-cornflower-blue_a7);
+  border-radius: var(--radius-6);
+  box-shadow: var(--shadow-3);
+  outline: none;
+}
+
+.input-field::placeholder { color: inherit; }
+
+.submit-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 0 var(--radius-6) var(--radius-6) 0;
+  background-color: var(--violet-blue-crayola);
+  color: var(--white);
+  padding-inline: 24px;
+  font-weight: var(--fw-700);
+}
+
+.footer .grid-list { grid-template-columns: repeat(4, 1fr); }
+
+address.footer-text {
+    padding-inline-end: 100px;
+    margin-block-end: 16px;
+  }
+
+
+/* Existing styles remain the same */
+
+/* Media query for small screens */
+@media (max-width: 768px) {
+  .footer {
+    padding-block: 30px;
+  }
+
+  .footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer .footer-brand,
+  .footer .footer-list {
+    margin-bottom: 20px;
+  }
+
+  .footer .footer-list {
+    width: 100%;
+  }
+
+  .footer .footer-list ul {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  .footer .footer-list li {
+    margin-bottom: 10px;
+  }
+
+  .footer .footer-list .footer-list-title {
+    margin-bottom: 10px;
+  }
+
+  .footer .social-list {
+    justify-content: center;
+  }
+
+  .footer .input-wrapper {
+    margin-top: 20px;
+  }
+}
+
+/* Media query for even smaller screens */
+@media (max-width: 576px) {
+  .footer .footer-brand img {
+    max-width: 100px;
+    height: auto;
+  }
+}
+
+/* Existing styles remain the same */
+
+/* Media query for small screens */
+@media (max-width: 768px) {
+  .header {
+    padding: 10px 20px; /* Adjust padding for smaller screens */
+  }
+
+  .nav-open-btn {
+    font-size: 2.5rem; /* Adjust font size for smaller screens */
+  }
+
+  .navbar-list {
+    display: none; /* Hide the navbar items */
+  }
+
+  .overlay {
+    opacity: 0; /* Hide the overlay */
+  }
+
+  .header.active .navbar-list {
+    display: flex; /* Show the navbar items when active */
+  }
+}
+
+/* Media query for even smaller screens */
+@media (max-width: 576px) {
+  .header .btn {
+    padding: 6px 12px; /* Adjust padding for even smaller screens */
+  }
+}
+
+
+
+
+
+
+/*-----------------------------------*\
+  #MEDIA QUERIES
+\*-----------------------------------*/
+
+/**
+ * responsive for large than 575px screen
+ */
+
+@media (min-width: 575px) {
+
+  /**
+   * REUSED STYLE
+   */
+
+  .container {
+    max-width: 540px;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+
+
+
+
+
+/* header navbar big */
+.header .navbar-list {
+  margin-right: 20px; /* Adjust margin for spacing */
+  padding: 15px; /* Adjust padding for the navbar list */
+}
+
+.header .navbar-link {
+  font-size: 16px; /* Adjust the font size of navbar links */
+  padding: 8px 15px; /* Adjust padding for the navbar links */
+}
+
+
+
+
+
+  /**
+   * HEADER
+   */
+
+  .header .btn {
+    display: block;
+    margin-inline-start: auto;
+    padding: 8px 20px;
+  }
+
+  .header.active .btn {
+    background-color: var(--violet-blue-crayola);
+    border-color: var(--violet-blue-crayola);
+    color: var(--white);
+  }
+
+    /* * HEADER */
+   
+
+  .nav-open-btn,
+  .navbar > *:not(.navbar-list),
+  .overlay { display: none; }
+
+  .navbar,
+  .navbar.active {
+    all: unset;
+    display: block;
+    margin-inline: auto 24px;
+  }
+
+  .navbar-list {
+    display: flex;
+    gap: 30px;
+  }
+
+  .navbar-link {
+    color: var(--white);
+    transition: var(--transition-1);
+  }
+
+  .navbar-link:is(:hover, :focus-visible) { opacity: 0.7; }
+
+  .header.active .navbar-link { color: var(--charcoal); }
+
+  .header.active .navbar-link:is(:hover, :focus-visible) {
+    opacity: 1;
+    color: var(--violet-blue-crayola);
+  }
+
+  .header .btn { margin-inline-start: 0; }
+
+
+
+ 
+
+}
+
+
+
+
+
+/**
+ * responsive for large than 1200px screen
+ */
+
+@media (min-width: 1200px) {
+
+  /**
+   * REUSED STYLE
+   */
+
+  .container { max-width: 1140px; }
+
+
+ 
+
+ 
+ 
+
+}
+
+
+
+
+
+/**
+ * responsive for large than 1400px screen
+ */
+
+@media (min-width: 1400px) {
+
+  /**
+   * REUSED STYLE
+   */
+
+  .container { max-width: 1320px; }
+
+}
+
+
+.header {
+    position: fixed;
+    width: 100%;
+    background-color: #2c2f48;
+    z-index: 1000;
+    padding: 10px 0; 
+    margin-bottom: 30px; 
+    
+}
+
+.contact-section {
+    margin-top: 30px; /* Adjust the margin to create a 30px gap */
+    padding: 30px 20px; /* Add padding to the contact section for spacing */
+    background-color: #363953;
+    color: #fff;
+}
+
+
+.contact-section {
+  padding-top: 50px; /* Adjust the padding to create the desired gap below the header */
+}
+
+/* Margin for the header */
+.header {
+  margin-bottom: 50px; /* Adjust as needed */
+}
+
+/* Margin for the contact section */
+section {
+  margin-top: 95px; /* Adjust to match the margin-bottom of the header */
+  margin-bottom: 40px; /* Adjust as needed */
+}
+
+
+/* Padding for the footer */
+footer {
+  padding-top: 20px; /* Adjust as needed */
+}
+/* Add this CSS to your stylesheet */
+
+/* Style for input wrappers */
+.input-wrap {
+  position: relative;
+}
+
+/* Style for icons inside input wrappers */
+.input-wrap i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px; /* Adjust the right position of the icon */
+}
+
+/* Adjust input padding to accommodate the icon */
+.input-wrap input, .input-wrap textarea {
+  padding-right: 30px; /* Adjust as needed */
+}
+.logo-text {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 70px; /* Adjust the margin as needed to position the text */
+  color: white; /* Text color */
+  font-weight: bold; /* Text style */
+}
+.logo .logo-text {
+  color: white;
+}
+.logo {
+  display: flex;
+  align-items: center; /* Center items vertically */
+}
+
+.logo img, .logo-text {
+  margin-right: 10px; /* Add some margin between the image and text */
+}
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align to the left */
+}
+
+.logo {
+  margin-bottom: -10px; /* Adjust as needed */
+  margin-left: 40px; /* Move the logo 30px to the left */
+}
+
+@media (max-width: 767px) {
+  .footer-text, .footer-link li {
+    padding-left: 10px; /* Adjust the padding to move the elements to the right */
+  }
+}
+
+</style>
+<body>
+ <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      
+      <a href="#" class="logo">
+        
+        <img src="./assets/images/algologonew.svg" width="80" height="24" alt="AlgoPrime" class="logo-dark">
+        <span class="logo-text"><b>ALGOPRIME INFOTECH</b></span>
+      </a>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+          <a href="#" class="logo">
+            <img src="./assets/images/logo-light.svg" width="74" height="24" alt="AlgoPrime home">
+          </a>
+
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+        <ul class="navbar-list">
+          <li>
+            <a href="index.html" class="navbar-link">Home</a>
+          </li>
+          <li>
+            <a href="about.html" class="navbar-link">About</a>
+          </li>
+          <li>
+            <a href="#" class="navbar-link">Labs</a>
+            <ul class="navbar-dropdown">
+              <li><a href="compiler.html">Online Compiler</a></li>
+              <li><a href="notes.html">Placement Notes</a></li>
+              <li><a href="Guid.html">Guidance</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="intrenship.html" class="navbar-link">Internship</a>
+          </li>
+          <li>
+            <a href="services.html" class="navbar-link">Services</a>
+          </li>
+        </ul>
+
+        <div class="wrapper">
+          <a href="mailto:info@email.com" class="contact-link">info@email.com</a>
+
+        
+        </div>
+
+        <ul class="social-list">
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-dribbble"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <a href="contact.html" class="btn btn-primary">Contact Us</a>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+
+ 
+
+
+
+
+
+    <section>
+        <div class="contact-containeraddi">
+           <div class="form-containeraru">
+            <h3>Contact Us</h3>
+            <form action=https://formspree.io/f/xrgwykqr method="POST" class="contact-form" autocomplete="off">
+
+                <div class="input-wrap w-100">
+                    <input type="text" name="name" placeholder="Enter Your Name" required>
+                    <i class="fas fa-address-card"></i>
+                </div>
+            
+                <div class="input-wrap w-100">
+                    <input type="email"  name="email"  placeholder="Email-Id" required>
+                    <i class="fas fa-envelope"></i>
+                </div>
+            
+                <div class="input-wrap w-100">
+                  <input type="tel" name="No" placeholder="Mobile No" pattern="[0-9]{10}" title="Please enter a 10-digit valid mobile number" required>
+                  <i class="fas fa-phone"></i>
+                </div>
+
+                <div class="input-wrap textarea w-100">
+                    <textarea name="Message" id="" cols="30" rows="10" placeholder="Message" required></textarea>
+                    <i class="fas fa-inbox"></i>
+                </div>
+                
+                <div class="conatct-buttons w-100">
+                  
+                    <input type="submit" value="Send Message" class="btn">
+                </div>
+                
+
+            </form>
+           </div> 
+
+           <!-- map -->
+           <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4434.4749302138725!2d74.44701487747955!3d16.68768612743381!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc0e388f0a0a5f3%3A0x238a73fa6f7ec2fe!2sKanak%20residency!5e0!3m2!1sen!2sin!4v1695275648187!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+           </div>
+        
+        </div>
+      
+    </section>
+    <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+    <div class="container grid-list">
+
+      <div class="footer-brand">
+        <div class="logo-container">
+          <a href="" class="logo">
+          
+          </a>
+        </div>
+        
+        <p class="footer-text">
+          &copy; 2023 AlgoPrime. <br> All rights reserved.
+        </p>
+
+        <ul class="social-list">
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.instagram.com/algo_prime/" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href=" https://wa.me/918421746042?text=Hi,Welcome to AlgoPrime" target="_blank" class="social-link">
+              <ion-icon name="logo-whatsapp"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <ul class="footer-list">
+
+        <li>
+          <p class="h4 footer-list-title">Get in Touch</p>
+        </li>
+
+        <li>
+          <address class="footer-text">
+            Ichalkaranji,Maharashtra 416-115.
+          </address>
+        </li>
+
+        <li>
+          <a href="mailto:info@email.com" class="footer-link">algoPrime.info@gmail.com</a>
+        </li>
+
+
+      </ul>
+
+      <ul class="footer-list">
+
+        <li>
+          <p class="h4 footer-list-title">Learn More</p>
+        </li>
+
+        <li>
+          <a href="index.html" class="footer-link">Home</a>
+        </li>
+
+        <li>
+          <a href="about.html" class="footer-link">About Us</a>
+        </li>
+
+        <li>
+          <a href="#" class="footer-link">Labs</a>
+        </li>
+
+        <li>
+          <a href="intrenship.html" class="footer-link">Internship</a>
+        </li>
+
+        <li>
+          <a href="services.html" class="footer-link">Services</a>
+        </li>
+        
+
+      </ul>
+
+      <div class="footer-list">
+
+        <p class="h4 footer-list-title">Our Newsletter</p>
+
+        <p class="footer-text">
+          Subscribe to our newsletter to get our news & deals delivered to you.
+        </p>
+
+        <form action="" class="input-wrapper">
+          <input type="email" name="email_address" placeholder="Email Address" required class="input-field">
+
+          <button type="submit" class="submit-btn">Join</button>
+        </form>
+
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>

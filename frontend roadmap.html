@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            background-color: white; /* Set background color to white */
+        }
+        h1{
+            text-align: center;
+        }
+
+        ul li {
+            list-style: none;
+        }
+        
+
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: #051626 !important;
+            z-index: 1000000000;
+            opacity: 1;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        div.one {
+            width: 8vmax;
+            height: 8vmax;
+            border-right: 4px solid white;
+            border-radius: 100%;
+            animation: spinRight 800ms linear infinite;
+        }
+
+        div.one:before,
+        div.one:after {
+            content: '';
+            width: 6vmax;
+            height: 6vmax;
+            display: block;
+            position: absolute;
+            top: calc(50% - 3vmax);
+            left: calc(50% - 3vmax);
+            border-left: 3px solid white;
+            border-radius: 100%;
+            animation: spinLeft 800ms linear infinite;
+        }
+
+        div.one:after {
+            width: 4vmax;
+            height: 4vmax;
+            top: calc(50% - 2vmax);
+            left: calc(50% - 2vmax);
+            border: 0;
+            border-right: 2px solid white;
+            animation: none;
+        }
+
+        @keyframes spinRight {
+            from {
+                transform: rotate(360deg);
+            }
+            to {
+                transform: rotate(0deg);
+            }
+        }
+
+        .center {
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .start ul li:nth-child(1) {
+            background: url(/imagehere/client-bg-1.png) top no-repeat !important;
+            padding-top: 180px !important;
+        }
+
+        .start ul li:nth-child(odd) {
+            background: url(/process-line-1\ newwwwwwww.png) 65px top no-repeat;
+            padding-top: 100px !important;
+        }
+
+        .start ul li:nth-child(even) {
+            background: url(/neeeeewwprocess-line-2.png) 65px top no-repeat;
+            padding-left: 590px;
+            padding-top: 100px;
+        }
+
+        .start ul li .icon {
+            margin: 30px 0;
+            display: inline-block;
+            height: 124px;
+            margin-right: 30px;
+            width: 124px;
+            text-align: center;
+        }
+
+        .start ul li h4 {
+            color: black; /* Set text color to black */
+            text-transform: uppercase;
+            font-size: 30px;
+        }
+
+        .start ul li.media-body {
+            max-width: 390px;
+        }
+
+        .start ul li p {
+            color: black; /* Set text color to black */
+        }
+
+        .home .process:after {
+            background: url(/imagehere/client-bg-1.png) center top no-repeat;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            content: "";
+            width: 100%;
+            z-index: 1;
+        }
+
+        .home .process:before {
+            position: absolute;
+            top: 0px;
+            content: "";
+            width: 100%;
+            left: 0px;
+            background: white;
+        }
+
+        img {
+            width: 200px;
+            height: 190px;
+            margin-left: -20px;
+            margin-top: -40px;
+            border: black solid 1px;
+             border-radius: 20px;
+        }
+
+        .two img {
+            width: 180px;
+            height: 200px;
+            margin-left: -20px;
+            margin-top: -70px;
+            border: black solid 1px;
+             border-radius: 20px;
+            
+        }
+
+        .three img {
+            width: 180px;
+            height: 190px;
+            margin-left: -20px;
+            border: black solid 1px;
+             border-radius: 20px;
+        }
+
+        .four img {
+            width: 200px;
+            height: 200px;
+            margin-left: -20px;
+            margin-top: -60px;
+            border: black solid 1px;
+             border-radius: 20px;
+        }
+
+        .five img {
+            width: 220px;
+            height: 170px;
+            margin-left: -20px;
+            margin-top: -20px;
+        
+        }
+        /* Responsive styles for the road map section */
+@media (max-width: 768px) {
+    .start ul li {
+        padding-top: 60px !important;
+    }
+
+    .start ul li:nth-child(even) {
+        padding-left: 20px;
+        padding-top: 60px;
+    }
+}
+
+/* Responsive styles for screens up to 480px width (e.g., iPhone SE, iPhone 6/7/8) */
+@media (max-width: 480px) {
+    .start ul li {
+        padding-top: 40px !important;
+    }
+
+    .start ul li:nth-child(even) {
+        padding-left: 10px;
+        padding-top: 40px;
+    }
+}
+
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>ROAD MAP</title>
+</head>
+<body>
+<div id="loader">
+    <div class="center">
+        <div class="one">
+        </div>
+    </div>
+</div>
+<div id="wrap" class="home">
+    <h1>Road Map For Front-End</h1>
+    <div id="content">
+        <section class="process">
+            <div class="container">
+                <div class="start">
+                    <ul class="row">
+                        <li>
+                            <div class="left">
+                                <div class="icon animate fadeInLeft" data-wow-delay="1.4s">
+                                    <img src="/imagehere/web-development.gif" alt="">
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <h4>Fundamentals</h4>
+                                <p>
+                                    <b>STEP 1. Front-End Fundamentals:</b>
+                                    - HTML, CSS, JavaScript (Basics)
+                                    - Responsive Web Design
+                                    - Version Control (<a href="https://git-scm.com/doc">Git</a>)
+                                <p>
+                                <b>2. Back-End Fundamentals:</b>
+                                - Choose a back-end language (e.g., JavaScript with Node.js, Python, Ruby, Java, C#, PHP, Go)
+                                - Database Fundamentals (SQL and NoSQL)
+                                - HTTP and API Basics</p>
+                                <p>
+                                    Resources:- HTML, CSS, JavaScript: MDN Web Docs HTML, CSS, and JavaScript Guides (<a href="https://developer.mozilla.org/en-US/docs/Web">link</a>)
+                                    - Git: Git documentation (<a href="https://git-scm.com/doc">link</a>)
+                                    - Database Fundamentals: Introduction to Databases on Coursera (<a href="https://www.coursera.org/learn/introduction-to-databases">link</a>)
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left two">
+                                <div class="icon animate fadeInLeft" data-wow-delay="1.8s">
+                                    <img src="/imagehere/image_processing20190930-15808-16c06mn.gif" alt="">
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <h4>Advanced Front-End</h4>
+                                <p>
+                                    <b> Step 2: Advanced Front-End</b>
+
+                                    Front-End Language: JavaScript (ES6+)
+                                    Frameworks and Libraries: React, Angular, or Vue.js (Choose one)
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left three">
+                                <div class="icon animate fadeInLeft" data-wow-delay="2s">
+                                    <img src="/imagehere/8930b329502133.55f6b199518e9.gif" alt="">
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <h4>Specialization And Optimization</h4>
+                                <p>
+                                    <b>Step 3: Specialization and Optimization :-</b>
+
+                                    Front-End + Framework Project:
+
+                                    Create a Progressive Web App (PWA) using React:
+                                    Implement service workers for offline functionality.
+                                    Add push notifications.
+                                    Optimize performance using lazy loading and code splitting.
+
+                                <p>Resources:</p>
+                                <p><b> 1. JavaScript (ES6+):</b>
+                                    • Resource: MDN Web Docs JavaScript Guide (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">link</a>)
+
+                                    <p>  <b>2. Frameworks:</b>
+                                        • React: Official React documentation (<a href="https://reactjs.org/docs/getting-started.html">link</a>)
+                                        Angular: Official Angular documentation (<a href="https://angular.io/docs">link</a>)
+                                        • Vue.js: Official Vue.js documentation (<a href="https://vuejs.org/v2/guide/">link</a>)
+                                    </p>
+                                    <p>
+                                        <b>3. PWA Development:</b>
+                                        Google's PWA Guide (<a href="https://web.dev/progressive-web-apps/">link</a>)
+                                        • "Building Progressive Web Apps" course on Udacity (<a href="https://www.udacity.com/course/progressive-web-apps--ud811">link</a>)
+                                    </p>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left four">
+                                <div class="icon animate fadeInLeft" data-wow-delay="2.2s">
+                                    <img src="/imagehere/wifi.gif" alt="">
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <h4>Performance Optimization</h4>
+                                <p>
+                                    <b>4. Performance Optimization:-</b>
+
+                                    <p>
+                                        • Google PageSpeed Insights
+                                        (<a href="https://developers.google.com/speed/pagespeed/insights/">link</a>)
+                                        <br> "Web Performance Optimization" course on Udacity(<a href="https://www.udacity.com/course/website-performance-optimization--ud884">link</a>)
+                                    </p>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left five">
+                                <div class="icon animate fadeInLeft" data-wow-delay="2.4s">
+                                    <img src="/imagehere/Boy-Working-From-Home.gif" alt="">
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <h4>Project Ideas</h4>
+                                <p>
+                                    <b>Step 5:- Create a simple PWA with React </b>
+                                    <p>(<a href="https://www.freecodecamp.org/news/react-pwa-from-scratch-5e1f0e8675be/">link</a>)<br>
+                                        More PWA project ideas (<a href="https://www.smashingmagazine.com/2018/02/simple- pwa-with-vanilla-js/">link</a>)<br>
+                                    </p>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="wow.min.js"></script>
+<script>
+    jQuery(document).ready(function ($) {
+        "use strict"
+        $("#loader").delay(1000).fadeOut("slow");
+        var wow = new WOW({
+            boxClass: 'animate',
+            animateClass: 'animated',
+            offset: 90,
+            mobile: false
+        });
+        wow.init();
+    });
+    $("#loader").delay(1000).fadeOut(400);
+</script>
+</body>
+</html>

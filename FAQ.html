@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Design</title>
+    <link rel="stylesheet" href="faq.css">
+</link>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f5f8ff;
+}
+.container{
+    margin: 0 40px;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.container h1{
+    color:#333;
+    text-align: center;
+}
+.container .tab  {
+    position: relative;
+    background:#fff;
+    padding: 0 20px 20px;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.05);
+     border-radius: 5px;
+    overflow: hidden;
+    }
+.container .tab input{
+    appearance: none;
+}
+
+.container .tab label{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.container .tab label::after{
+    content: '+';
+    position: absolute;
+    right: 20px;
+    font-size: 2em;
+    color: rgba(0,0,0,0.1);
+    transition: transform 1s;
+}
+.container .tab:hover label::after{
+    color: #333;
+}
+
+.container .tab input:checked ~ label::after{
+    transform: rotate(135deg);
+    color: #fff;
+}
+
+.container .tab label h2{
+    width: 40px;
+    height: 40px;
+    background: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 1.25em;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.container .tab input:checked ~ label h2{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: rgba(255,255,255,0.2);
+    font-size: 8em;
+    justify-content: flex-end;
+    padding: 20px;
+}
+
+
+
+.container .tab:nth-child(2) label h2{
+    background: linear-gradient(135deg,#70f570,#49c628);
+}
+
+.container .tab:nth-child(3) label h2{
+    background: linear-gradient(135deg,#3c8ce7,#00eaff);
+}
+
+.container .tab:nth-child(4) label h2{
+    background: linear-gradient(135deg,#ff96f9,#c32bac);
+}
+
+.container .tab:nth-child(5) label h2{
+    background: linear-gradient(135deg,#70f570,#49c628);
+}
+
+.container .tab:nth-child(6) label h2{
+    background: linear-gradient(135deg,#3c8ce7,#00eaff);
+}
+
+.container .tab:nth-child(7) label h2{
+    background: linear-gradient(135deg,#ff96f9,#c32bac);
+}
+
+.container .tab:nth-child(8) label h2{
+    background: linear-gradient(135deg,#70f570,#49c628);
+}
+
+.container .tab:nth-child(9) label h2{
+    background: linear-gradient(135deg,#3c8ce7,#00eaff);
+}
+
+
+
+.container .tab label h3{
+    position: relative;
+    font-weight: 500;
+    color: #333;
+    z-index: 10;
+}
+
+.container .tab input:checked ~label h3{
+    background: #fff;
+    padding: 2px 10px; 
+    color: #333;
+    border-radius: 2px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+
+.container .tab .content{
+    max-height:0;
+    transition: 1s;
+    overflow: hidden;
+
+}
+
+.container .tab input:checked ~ .content{
+    max-height: 100vh;
+}
+
+.container .tab .content p{
+    position: relative;
+    padding: 10px 0;
+    color: #333;
+    z-index: 10;
+}
+
+.container .tab input:checked ~ .content p{
+    color: #fff;
+}
+
+.container .tab .content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+
+.container .tab .content.minimize {
+    max-height: 0;
+}
+
+
+
+/* Add styles for the close button */
+.container .tab .label-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container .tab .close-button {
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+.container .tab .content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+
+.container .tab .content.minimize {
+    max-height: 0;
+}
+</style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Frequently Asked Questions</h1>
+        <div class="tab">
+           
+            <input type="radio" name="acc" id="acc1">
+            <label for="acc1">
+                <h2>01</h2>
+                <h3>How To Apply For Internships?</h3>
+            </label>
+            <div class="content minimize"> 
+            
+                <p>To Apply For Upcoming Batch Of Internship You Need To Fill The Interest Form In That Specific Domains, After that you Will  Receive the Offer Letter From Us after selection processes.</p>
+            </div>
+        </div>
+    
+    
+        <div class="tab">
+            <input type="radio" name="acc" id="acc2">
+            <label for="acc2">
+                <h2>02</h2>
+                <h3>How To Fill The Interest Form?</h3>
+            </label>
+            <div class="content">
+            
+                <p>You Will Get the Interest form Of all the Internships Domains which are mentioned in above Internships Column. Click On Apply Now Button, Your Response Will Help Us To Understand Your Current Skills And Need For Training During The Internship If Any.</p>
+            </div>
+        </div>
+        <div class="tab">
+            <input type="radio" name="acc" id="acc3">
+            <label for="acc3">
+                <h2>03</h2>
+                <h3>I Have Completed All The Necessary Steps, Whats Next?</h3>
+            </label>
+            <div class="content"> 
+            
+                <p> If You Have Filled All The Required Field In Interest Form Correctly, You Will Receive an Offer Letter From Us Before Your Internship Starts. All Important Information And Anouncements Related To Internship Are Communicated Through Our social media platforms From AlgoPrime.</p>
+            </div>
+        </div>
+
+         <div class="tab">
+            <input type="radio" name="acc" id="acc4">
+            <label for="acc4">
+                <h2>04</h2>
+                <h3>What Will Be The Duration Of Internship?</h3>
+            </label>
+            <div class="content"> 
+            
+                <p>The Duration of Internship for all the Domains is 4 Weeks.</p>
+            </div>
+        </div>
+    
+
+        <div class="tab">
+            <input type="radio" name="acc" id="acc5">
+            <label for="acc5">
+                <h2>05</h2>
+                <h3>I Have Completed My Tasks Well Before Deadline.When Will I Get A Certificate?</h3>
+            </label>
+            <div class="content">
+                
+                <p>You Can Submit Your Task Through Task Submission Form If You Have Received It Or Wait For It To Be Shared. If You Have Submitted The Task Before The Deadline Please Expect Your Completion Certificate In The 1st Week Of Next Month.</p>
+            </div>
+        </div>
+    
+        <div class="tab">
+            <input type="radio" name="acc" id="acc6">
+            <label for="acc6">
+                <h2>06</h2>
+                <h3>How do you ensure that websites you build are responsive? </h3>
+            </label>
+            <div class="content">
+                
+                <p>Ensuring the websites I build are responsive is a top priority. I utilize the latest techniques like CSS media queries and flexible grid systems to create layouts that adapt seamlessly to different screen sizes. This approach guarantees that your website will look and function flawlessly on desktops, tablets, smartphones, and other devices.</p>
+            </div>
+        </div>
+        <div class="tab">
+            <input type="radio" name="acc" id="acc7">
+            <label for="acc7">
+                <h2>07</h2>
+                <h3>What technologies do you use for web development?</h3>
+            </label>
+            <div class="content">
+                
+                <p> For front-end web development, I am proficient in HTML, CSS, and JavaScript. I also have experience working with various front-end frameworks like React, which allows me to build dynamic and interactive user interfaces. For back-end web development, I use PHP, which is a server-side scripting language known for its flexibility and wide support. To store and manage data, I use MySQL, a popular open-source relational database management system.</p>
+            </div>
+        </div>
+
+        <div class="tab">
+            <input type="radio" name="acc" id="acc8">
+            <label for="acc8">
+                <h2>08</h2>
+                <h3>Can you redesign an existing website?</h3>
+            </label>
+            <div class="content">
+                
+                <p> Absolutely! We can redesign your existing website, incorporating the latest design trends to enhance its visual appeal and user experience. Whether it's a simple layout update or a complete revamp, We can handle it efficiently.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const plusSigns = document.querySelectorAll('.container .tab label::after');
+    const contents = document.querySelectorAll('.container .tab .content');
+    const closeButtons = document.querySelectorAll('.container .tab .close-button');
+
+    // Function to close an FAQ section
+    function closeFAQ(index) {
+        contents[index].classList.add('minimize');
+        plusSigns[index].innerText = '+';
+    }
+
+    plusSigns.forEach((plusSign, index) => {
+        plusSign.addEventListener('click', () => {
+            contents[index].classList.toggle('minimize');
+            plusSigns[index].innerText = contents[index].classList.contains('minimize') ? '+' : '-';
+        });
+    });
+
+    closeButtons.forEach((closeButton, index) => {
+        closeButton.addEventListener('click', (event) => {
+            event.stopPropagation();
+            closeFAQ(index);
+        });
+    });
+
+    contents.forEach((content, index) => {
+        content.addEventListener('click', () => {
+            if (!content.classList.contains('minimize')) {
+                closeFAQ(index);
+            }
+        });
+    });
+
+    // Close all FAQs initially
+    contents.forEach((content, index) => {
+        closeFAQ(index);
+    });
+});
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

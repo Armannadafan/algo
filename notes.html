@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- footer js -->
+    <script src="https://kit.fontawesome.com/30555e8e88.js"></script>
+    <style>  * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Set a background color for the entire page */
+    body {
+        background-color: #f0f0f0;
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .containernotes {
+    background: linear-gradient(45deg, white, white);
+    padding: 20px 15%;
+    padding-bottom: 10px;
+}
+
+
+
+    /* Style the section containing the cards */
+    .section-services {
+        background-image: url('study.webp');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        padding: 20px 0;
+    }
+
+    /* Style the common heading */
+    .cl {
+        text-align: center;
+        border: 2px solid #007BFF;
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: white;
+    }
+
+    .cl h1 {
+        color: black;
+    }
+
+    .cl span {
+        color: #007BFF;
+    }
+
+    .cl h1:hover {
+        color: coral;
+    }
+
+    .cl p {
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    /* Style the grid */
+    .grid-three-column {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    /* Style the service boxes */
+    .service-box {
+        flex: 0 0 calc(33.33% - 20px);
+        padding: 20px;
+        border: 1px solid black;
+        text-align: center;
+        transition: all 0.2s linear;
+        background-color: #f4f4f4;
+        border-radius: 20px;
+    }
+
+    .service-box:hover {
+        background-color: white;
+    }
+
+    /* Style the service icons */
+    .service-icon {
+        font-size: 2rem;
+        width: 8rem;
+        background-color: rgba(144, 172, 209, 0.2);
+        display: inline-block;
+        border-radius: 100% 0% 0% 100% / 100% 0% 100% 0%;
+        padding: 1.4rem 1.8rem;
+        position: relative;
+        color: black;
+        animation: water-wave 3s linear infinite;
+    }
+
+    .service-icon::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        height: 90%;
+        border-radius: 56% 44% 70% 30% / 30% 54% 46% 70%;
+        background: transparent;
+        border: 1px solid black;
+        animation: water-wave 3s linear infinite;
+    }
+
+    @keyframes water-wave {
+        0% {
+            border-radius: 56% 44% 70% 30% / 30% 54% 46% 70%;
+        }
+        50% {
+            border-radius: 3% 97% 15% 85% / 72% 0% 100% 28%;
+        }
+        100% {
+            border-radius: 56% 44% 70% 30% / 30% 54% 46% 70%;
+        }
+    }
+
+    /* Style the headings and buttons */
+    .service-box h3 {
+        text-transform: capitalize;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 10px 30px;
+        margin: 10px;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+        text-decoration: none;
+    }
+
+    .button.large-button {
+        padding: 40px 60px;
+        font-size: 18px;
+    }
+
+    .button:hover {
+        background-color: #2980b9;
+    }
+
+    /* Style the download button */
+    .download-button {
+        background-color: #007BFF;
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+        text-decoration: none;
+        display: inline-block;
+        text-align: center;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .download-button:hover {
+        background-color: #0056b3;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .service-box a.button.download-button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    /* Center the text horizontally */
+    .section-services p {
+        max-width: 60rem;
+        font-size: 1.5rem;
+        background: linear-gradient(45deg, #ff00cc, #3333ff);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        animation: textGlow 5s infinite alternate;
+        text-align: center;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .section-services p::before,
+    .section-services p::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        bottom: 0;
+        left: 0;
+        transform: scaleX(0);
+        transform-origin: bottom left;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .section-services p::after {
+        transform-origin: bottom right;
+    }
+
+    .section-services p:hover::before {
+        transform: scaleX(1);
+    }
+
+    .section-services p:hover::after {
+        transform: scaleX(1);
+    }
+
+
+
+    
+    
+/*-----------------------------------*\
+  #FOOTER
+\*-----------------------------------*/
+
+.footer {
+  background-color: var(--charcoal);
+  padding-block: 60px 100px;
+  color: var(--light-gray);
+}
+
+.footer-brand .footer-text { margin-block: 20px; }
+
+.footer .social-list { color: var(--white); }
+
+.footer-list-title {
+  color: var(--white);
+  margin-block-end: 16px;
+  
+}
+
+.footer-link {
+  padding-block: 4px;
+  transition: var(--transition-1);
+}
+
+.footer-link:is(:hover, :focus-visible) { color: var(--violet-blue-crayola); }
+
+.input-wrapper {
+  position: relative;
+  margin-block-start: 25px;
+}
+
+.input-field {
+  background-color: var(--white_a3);
+  color: var(--light-gray);
+  font-size: var(--fs-7);
+  padding: 12px 16px;
+  border: 1px solid var(--dark-cornflower-blue_a7);
+  border-radius: var(--radius-6);
+  box-shadow: var(--shadow-3);
+  outline: none;
+}
+
+.input-field::placeholder { color: inherit; }
+
+.submit-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 0 var(--radius-6) var(--radius-6) 0;
+  background-color: var(--violet-blue-crayola);
+  color: var(--white);
+  padding-inline: 24px;
+  font-weight: var(--fw-700);
+}
+.footer-list-title h4{
+  color: var(--white);
+  font-size: 1.5rem; /* Adjust the font size as needed */
+  margin-bottom: 0.5rem; /* Adjust the margin as needed */
+}
+
+.footer .grid-list { grid-template-columns: repeat(4, 1fr); 
+}
+
+address.footer-text {
+  padding-inline-end: 100px;
+  margin-block-end: 16px;
+}
+
+/* responsive */
+
+@media (max-width: 576px) {
+  .grid-list {
+    grid-template-columns: 1fr; /* Change to a single column on smaller screens */
+  }
+
+  .address.footer-text {
+    padding-inline-end: 0; /* Remove padding on smaller screens */
+  }
+}
+
+
+:root {
+/**
+ * colors
+ */
+ --violet-blue-crayola: hsla(234, 50%, 64%, 1);
+--dark-cornflower-blue_a7: hsla(214, 88%, 27%, 0.07);
+--white: hsla(0, 0%, 100%, 1);
+--white_a3: hsla(0, 0%, 100%, 0.03);
+--white_a8: hsla(0, 0%, 100%, 0.08);
+--white_a12: hsla(0, 0%, 100%, 0.12);
+--white_a70: hsla(0, 0%, 100%, 0.7);
+--cultured: hsla(220, 20%, 97%, 1);
+--lavender-web: hsla(233, 52%, 94%, 1);
+--cadet-blue-crayola: hsla(220, 12%, 70%, 1);
+--cadet-blue-crayola_a20: hsla(222, 23%, 71%, 0.2);
+--charcoal: hsla(218, 22%, 26%, 1);
+--raisin-black: hsla(216, 14%, 14%, 1);
+--light-gray: hsla(0, 0%, 79%, 1);
+--blue-crayola: hsla(219, 72%, 56%, 1);
+--black-coral: hsla(220, 12%, 43%, 1);
+/**
+ * typography
+ */
+--ff-manrope: 'Manrope', sans-serif;
+--fs-1: calc(2.7rem + 1.38vw);
+--fs-2: calc(2.6rem + .66vw);
+--fs-3: 2.2rem;
+--fs-4: 1.9rem;
+--fs-5: 1.
+/** 
+ * spacing
+ */
+
+--section-padding: 90px;
+
+/**
+ * box shadow
+ */
+
+--shadow-1: 0 0 20px hsla(216, 14%, 14%, 0.05);
+--shadow-2: 0 0 0 0.05rem hsla(214, 88%, 27%, 0.08), 0 0 1.25rem hsla(216, 14%, 14%, 0.06);
+--shadow-3: 0 0 1.25rem hsla(216, 14%, 14%, 0.04);
+
+/**
+ * border radius
+ */
+
+--radius-circle: 50%;
+--radius-pill: 100px;
+--radius-10: 10px;
+--radius-8: 8px;
+--radius-6: 6px;
+
+/**
+ * transition
+ */
+
+--transition-1: 0.25s ease;
+--transition-2: 0.5s ease;
+--transition-3: 0.3s ease-in-out;
+
+}
+
+
+
+
+
+/*-----------------------------------*\
+#RESET
+\*-----------------------------------*/
+
+*,
+*::before,
+*::after {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+li { list-style: none; }
+
+a,
+img,
+span,
+input,
+button,
+ion-icon { display: block; }
+
+a {
+color: inherit;
+text-decoration: none;
+}
+
+img { height: auto; }
+
+input,
+button {
+background: none;
+border: none;
+font: inherit;
+}
+
+input { width: 100%; }
+
+button { cursor: pointer; }
+
+ion-icon { pointer-events: none; }
+
+address { font-style: normal; }
+
+html {
+font-family: var(--ff-manrope);
+font-size: 10px;
+scroll-behavior: smooth;
+}
+
+body {
+background-color: var(--white);
+color: var(--black-coral);
+font-size: 1.6rem;
+line-height: 1.7;
+}
+
+body.nav-active { overflow: hidden; }
+
+::-webkit-scrollbar { width: 10px; }
+
+::-webkit-scrollbar-track { background-color: hsl(0, 0%, 98%); }
+
+::-webkit-scrollbar-thumb { background-color: hsl(0, 0%, 80%); }
+
+::-webkit-scrollbar-thumb:hover { background-color: hsl(0, 0%, 70%); }
+
+
+
+
+
+/*-----------------------------------*\
+#REUSED STYLE
+\*-----------------------------------*/
+
+.container { padding-inline: 16px; }
+
+.social-list {
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.social-link {
+font-size: 2rem;
+transition: var(--transition-1);
+}
+
+.social-link:is(:hover, :focus-visible) { transform: translateY(-3px); }
+
+.section { padding-block: var(--section-padding); }
+
+.has-bg-image {
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+color: var(--charcoal);
+font-weight: var(--fw-700);
+line-height: 1.3;
+}
+
+.h1 { font-size: var(--fs-1); }
+
+.h2 { font-size: var(--fs-2); }
+
+.h3 { font-size: var(--fs-3); }
+
+.h4 { font-size: var(--fs-4); }
+
+.h5 { font-size: var(--fs-6); }
+
+.btn {
+color: var(--white);
+font-size: var(--fs-6);
+font-weight: var(--fw-700);
+border: 2px solid var(--white);
+max-width: max-content;
+padding: 12px 28px;
+border-radius: var(--radius-pill);
+transition: var(--transition-1);
+will-change: transform;
+}
+
+.btn:is(:hover, :focus-visible) { transform: translateY(-4px); }
+
+.btn-primary,
+.btn-outline:is(:hover, :focus-visible) {
+background-color: var(--white);
+color: var(--charcoal);
+}
+
+.img-holder {
+aspect-ratio: var(--width) / var(--height);
+background-color: var(--light-gray);
+overflow: hidden;
+}
+
+.img-cover {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+.section-subtitle {
+font-size: var(--fs-7);
+text-transform: uppercase;
+color: var(--violet-blue-crayola);
+font-weight: var(--fw-700);
+margin-block-end: 16px;
+}
+
+.grid-list {
+display: grid;
+gap: 25px;
+}
+
+.w-100 { width: 100%; }
+
+
+
+
+/*-----------------------------------*\
+#HEADER
+\*-----------------------------------*/
+
+.header .btn { display: none; }
+
+.header {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+padding-block: 20px;
+box-shadow: var(--shadow-1);
+z-index: 4;
+}
+
+.header.active {
+background-color: var(--white);
+position: fixed;
+animation: slideIn 0.5s ease forwards;
+}
+
+@keyframes slideIn {
+0% { transform: translateY(-100%); }
+100% { transform: translateY(0); }
+}
+
+.header .container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 16px;
+}
+
+.header.active .logo-light,
+.header .logo-dark { display: none; }
+
+.header .logo-light,
+.header.active .logo-dark { display: block; }
+
+.nav-open-btn {
+font-size: 3.5rem;
+color: var(--white);
+}
+
+.header.active .nav-open-btn { color: var(--charcoal); }
+
+.navbar {
+position: fixed;
+top: 0;
+left: -300px;
+background-color: var(--raisin-black);
+color: var(--white);
+max-width: 300px;
+width: 100%;
+height: 100vh;
+padding: 30px;
+padding-block-end: 40px;
+display: flex;
+flex-direction: column;
+gap: 30px;
+z-index: 2;
+visibility: hidden;
+transition: var(--transition-3);
+}
+
+.navbar.active {
+visibility: visible;
+transform: translateX(300px);
+}
+
+.navbar-top {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.nav-close-btn {
+background-color: var(--white_a8);
+color: var(--white);
+font-size: 2rem;
+padding: 6px;
+border-radius: var(--radius-circle);
+transition: var(--transition-1);
+}
+
+.nav-close-btn ion-icon { --ionicon-stroke-width: 50px; }
+
+.nav-close-btn:is(:hover, :focus-visible) { background-color: var(--white_a12); }
+
+.navbar-list { margin-block-end: auto; }
+
+.navbar-link {
+font-weight: var(--fw-700);
+padding-block: 6px;
+}
+
+
+.contact-link { transition: var(--transition-1); }
+
+.contact-link:is(:hover, :focus-visible) { color: var(--violet-blue-crayola); }
+
+.overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100vh;
+background-color: var(--raisin-black);
+pointer-events: none;
+opacity: 0;
+transition: var(--transition-1);
+}
+
+.overlay.active {
+pointer-events: all;
+opacity: 0.8;
+}
+
+.navbar-list {
+list-style-type: none;
+margin: 0;
+padding: 0;
+}
+
+.navbar-list li {
+display: inline-block;
+margin-right: 20px;
+position: relative;
+}
+
+.navbar-link {
+text-decoration: none;
+color: #333;
+}
+/* Add this CSS to your existing stylesheet */
+
+/* Navbar Dropdown Styles */
+.navbar-dropdown {
+display: none;
+position: absolute;
+top: 100%;
+left: 0;
+background-color: #fff;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+padding: 10px;
+z-index: 1;
+min-width: 200px; /* Adjust the width as needed */
+border-radius: 5px;
+}
+
+/* Style for the individual items in the dropdown */
+.navbar-dropdown a {
+display: block;
+padding: 10px;
+color: #333;
+text-decoration: none;
+transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect for dropdown items */
+.navbar-dropdown a:hover {
+background-color: #007bff; /* Change the background color on hover */
+color: #fff; /* Change the text color on hover */
+}
+
+/* Apply a subtle transition to the dropdown menu */
+.navbar-list li:hover .navbar-dropdown {
+display: block;
+}
+
+/* Adjust the padding and spacing of the dropdown items */
+.navbar-dropdown a {
+padding: 10px 20px; /* Adjust padding as needed */
+margin: 5px 0; /* Adjust margin as needed */
+}
+
+.navbar {
+            padding-bottom: 20px; /* Adjust as needed */
+            background-image: url('path_to_your_image/hero-bg.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+
+        /* Center-align the text */
+        .navbar-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .navbar-center a {
+            color: white;
+            text-decoration: none;
+        }
+
+
+
+
+
+/*-----------------------------------*\
+#MEDIA QUERIES
+\*-----------------------------------*/
+
+/**
+* responsive for large than 575px screen
+*/
+
+@media (min-width: 575px) {
+
+/**
+ * REUSED STYLE
+ */
+
+.container {
+  max-width: 540px;
+  width: 100%;
+  margin-inline: auto;
+}
+}
+
+
+
+
+
+
+/**
+* responsive for large than 768px screen
+*/
+
+@media (min-width: 768px) {
+
+/**
+ * CUSTOM PROPERTY
+ */
+
+:root {
+
+  /**
+   * spacing
+   */
+
+  --section-padding: 120px;
+
+}
+}
+
+
+/**
+ * REUSED STYLE
+ */
+
+.container { max-width: 720px; }
+
+.grid-list { grid-template-columns: 1fr 1fr; }
+
+
+
+/**
+ * HEADER
+ */
+
+.header .btn {
+  display: block;
+  margin-inline-start: auto;
+  padding: 8px 20px;
+}
+
+.header.active .btn {
+  background-color: var(--violet-blue-crayola);
+  border-color: var(--violet-blue-crayola);
+  color: var(--white);
+}
+
+
+
+
+
+
+/**
+* responsive for large than 992px screen
+*/
+
+@media (min-width: 992px) {
+
+/**
+ * REUSED STYLE
+ */
+
+.container { max-width: 960px; }
+
+}
+
+/**
+ * HEADER
+ */
+
+.nav-open-btn,
+.navbar > *:not(.navbar-list),
+.overlay { display: none; }
+
+.navbar,
+.navbar.active {
+  all: unset;
+  display: block;
+  margin-inline: auto 24px;
+}
+
+.navbar-list {
+  display: flex;
+  gap: 30px;
+}
+
+.navbar-link {
+  color: var(--white);
+  transition: var(--transition-1);
+}
+
+.navbar-link:is(:hover, :focus-visible) { opacity: 0.7; }
+
+.header.active .navbar-link { color: var(--charcoal); }
+
+.header.active .navbar-link:is(:hover, :focus-visible) {
+  opacity: 1;
+  color: var(--violet-blue-crayola);
+}
+
+.header .btn { margin-inline-start: 0; }
+
+
+
+
+
+
+
+
+
+@media (min-width: 1200px) {
+
+.container { max-width: 1140px; }
+
+
+}
+
+
+
+
+
+
+
+/**
+ * FOOTER
+ */
+
+
+
+
+/* Add this to your CSS file */
+.header {
+    background-image: url('./assets/images/hero-bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+
+
+
+/* Adjust the styles for the navbar links */
+.navbar-link {
+    color: white; /* Set the color of the navbar links */
+}
+
+.navbar-link:hover {
+    color: #ffcc00; /* Set the hover color of the navbar links */
+} .navbar {
+            
+            background-image: url('path_to_your_image/hero-bg.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+
+        .navbar-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .navbar-center a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Space below navbar */
+        .space-below-navbar {
+            padding-bottom: 30px;
+        }
+
+        /* Styles for "Our Services" text */
+        .our-services {
+            text-align: center;
+            margin-top: 30px; /* Adjust margin as needed */
+            font-size: 36px; /* Adjust font size as needed */
+            font-weight: bold;
+            
+        }
+
+        .space-below-navbar {
+    height: 100px; /* Adjust the height to create the desired space */
+}
+
+/* hedsre responsive  */
+
+/* Add a media query for smaller screens */
+@media (max-width: 768px) {
+  .navbar {
+    display: none;
+  }
+
+  .nav-open-btn,
+  .nav-close-btn {
+    display: inline-block;
+  }
+}
+
+.overlay {
+  display: none; /* Hide the overlay by default */
+}
+
+/* Add a media query for smaller screens to show the overlay */
+@media (max-width: 768px) {
+  .overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+}
+
+
+/* scroll responsive  */
+body {
+  overflow-x: hidden; /* Disable horizontal overflow */
+}
+
+
+/* Adjust styles for smaller screens */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-brand, .footer-list {
+    max-width: none;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.service-box {
+  
+    flex-direction: column;
+}
+
+.service-box .download-button {
+    margin-top: auto;
+}
+/* Responsive styling for smaller screens */
+@media (max-width: 768px) {
+    /* Adjust styling for smaller screens */
+
+    /* Service box */
+    .service-box {
+        flex-direction: row; /* Arrange horizontally for smaller screens */
+        align-items: center; /* Align items in the center */
+    }
+
+    /* Download button */
+    .service-box .download-button {
+        margin-top: 0; /* Reset margin */
+        margin-left: auto; /* Move the button to the right */
+    }
+}
+
+
+  
+  
+
+   
+
+    .service-icon {
+      font-size: 2em;
+    }
+    @media (max-width: 768px) {
+      .core-subject-notes {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    /* Adjust styles for smaller screens */
+    @media (max-width: 768px) {
+      .service-box {
+        flex: 0 0 calc(100% - 20px); /* Full width for smaller screens */
+      }
+    }
+
+    
+    /* Adjust styles for smaller screens */
+    @media (max-width: 768px) {
+      footer {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-link {
+        flex: 0;
+        margin: 10px 0;
+      }
+    }
+
+       /* Adjust styles for smaller screens */
+       @media (max-width: 768px) {
+      .core-subject-notes {
+        display: none; /* Initially hide */
+      }
+    }
+      .services {
+        order: 3; /* Display below the Core Subject Notes */
+      }
+      .footer-list-title {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    /* header logo css */
+
+.logo-text {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 70px; /* Adjust the margin as needed to position the text */
+  color: white; /* Text color */
+  font-weight: bold; /* Text style */
+}
+
+    
+    </style>
+</head>
+<body>
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo">
+        <img src="./assets/images/algologonew.svg" width="80" height="24" alt="AlgoPrime" class="logo-light">
+        <img src="./assets/images/algologonew.svg" width="80" height="24" alt="AlgoPrime" class="logo-dark">
+        <span class="logo-text"><b>ALGOPRIME INFOTECH</b></span>
+      </a>
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+          <a href="#" class="logo">
+            <img src="./assets/images/logo-light.svg" width="74" height="24" alt="AlgoPrime home">
+          </a>
+
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+        <ul class="navbar-list">
+          <li>
+            <a href="index.html" class="navbar-link">Home</a>
+          </li>
+          <li>
+            <a href="#" class="navbar-link">About</a>
+          </li>
+          <li>
+            <a href="#" class="navbar-link">Labs</a>
+            <ul class="navbar-dropdown">
+              <li><a href="compiler.html">Online Compiler</a></li>
+              <li><a href="notes.html">Placement Notes</a></li>
+              <li><a href="Guid.html">Guidance</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="intrenship.html" class="navbar-link">Internship</a>
+          </li>
+          <li>
+            <a href="services.html" class="navbar-link">Services</a>
+          </li>
+        </ul>
+
+        <div class="wrapper">
+          <a href="mailto:info@email.com" class="contact-link">info@email.com</a>
+
+          <a href="tel:001234567890" class="contact-link">00 (123) 456 78 90</a>
+        </div>
+
+        <ul class="social-list">
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-dribbble"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <a href="contact.html" class="btn btn-primary">Contact Us</a>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+
+
+    <section class="section section-services">
+        <div class="containernotes">
+            <div class="cl">
+                <h1>Core Subject Notes</h1>
+            </div>
+           
+        </div>
+        <!-- Services Offers -->
+        <div class="containernotes grid grid-three-column">
+            <!-- Service Box 1 -->
+            <div class="service-box">
+                <ion-icon name="desktop-outline" class="service-icon"></ion-icon>
+                <h3>C Notes</h3>
+                <p>C is a powerful, efficient, and widely-used programming language known for its versatility and close-to-hardware capabilities.</p>
+                <a href="https://drive.google.com/file/d/1KioKdo8NFuTnJ2RVpfyUSs3SVCL3gyWf/view?usp=sharing" class="button download-button">Download</a>
+
+            </div>
+
+            <!-- Service Box 2 -->
+            <div class="service-box">
+                <ion-icon name="desktop-outline" class="service-icon"></ion-icon>
+                <h3>C++ Notes</h3>
+                <p>C++ is known for its object-oriented programming paradigm, which allows for the organization of code into reusable and modular structures called "objects." </p>
+                <a href="https://drive.google.com/file/d/1KjLZhMc4D1zL0QsGp5ZjKcz7PusuH_j-/view?usp=sharing" class="button download-button">Download</a></div>
+
+            <!-- Service Box 3 -->
+            <div class="service-box">
+                <ion-icon name="desktop-outline" class="service-icon"></ion-icon>
+                <h3>COA Notes</h3>
+                <p>
+                  Computer Organization and Architecture is the study of how computer systems are designed at both hardware and software levels.</p>
+                <a href="https://drive.google.com/file/d/1JgQfF4GmQfbfTQhW8VGg6CFTFOnNRdkf/view?usp=sharing" class="button download-button">Download</a></div>
+
+            <!-- Continue adding more service boxes here as needed -->
+            
+            <div class="service-box">
+     
+                <ion-icon name="book" class="service-icon"></ion-icon>
+                <h3>Java Notes</h3>
+                <p>Java is a versatile, object-oriented programming language renowned for its platform independence and versatility. It was developed by James Gosling and Mike Sheridan in the mid-1990s.It is platform-independent.</p>
+                <a href="https://drive.google.com/file/d/1JmUArrOAX7ToJLf2AHJikDU91xvSI-MF/view?usp=sharing" class="button download-button">Download</a>            </div>
+
+           
+
+            
+
+            
+            <div class="service-box">
+     
+                
+
+                <ion-icon name="desktop" class="service-icon"></ion-icon>
+                <h3>DSA Notes</h3>
+                <p>Data Structures and Algorithms (DSA) involve the study of organizing and manipulating data effectively to solve problems efficiently. Data structures are ways to store and organize data & also step-by-step algo are there.</p>
+                <a href="https://drive.google.com/file/d/1KKgVULQzoGKM7x1rEEnQPumOfvl2qCG4/view?usp=sharing" class="button download-button">Download</a>            </div>
+
+
+            <div class="service-box">
+     
+     
+                <ion-icon name="globe" class="service-icon"></ion-icon>
+                <h3>ML Notes</h3>
+                <p>Machine Learning (ML) is an artificial intelligence (AI) subfield focused on creating algorithms and models that allow computers to learn and make predictions or decisions without being explicitly programmed.</p>
+                <a href="https://drive.google.com/file/d/1KioKdo8NFuTnJ2RVpfyUSs3SVCL3gyWf/view?usp=sharing" class="button download-button">Download</a>            </div>
+
+            <div class="service-box">
+     
+                <ion-icon name="book" class="service-icon"></ion-icon>
+                <h3>SE Notes</h3>
+                <p>Software Engineering involves systematic approaches to designing, developing, testing, and maintaining software systems efficiently and reliably.</p>
+                <a href="https://drive.google.com/file/d/1Jkz5ILbv696qk1jGT08OpXz_3A3DhCv8/view?usp=sharing" class="button download-button">Download</a>            </div>
+
+            <div class="service-box">
+     
+                <ion-icon name="book" class="service-icon"></ion-icon>
+                <h3>Mobile Computing Notes</h3>
+                <p>Mobile Computing focuses on the design, development, and optimization of applications and systems for mobile devices like smartphones and tablets.</p>
+                <a href="https://drive.google.com/file/d/1JoigZKaFGK7RUk9saAktwNHA11LC1aOT/view?usp=sharing" class="button download-button">Download</a>            </div>
+
+
+
+            <div class="service-box">
+     
+                <ion-icon name="book" class="service-icon"></ion-icon>
+                <h3>OS Notes</h3>
+                <p>An Operating System (OS) is software that acts as an intermediary between computer hardware and users, managing hardware resources.</p>
+                <a href="https://drive.google.com/file/d/1LFXRHo7gJc6stM_7CjoThaN8hXaoaqBV/view?usp=sharing" class="button download-button">Download</a>            </div>
+
+
+            
+            <div class="service-box">
+     
+
+                <ion-icon name="desktop" class="service-icon"></ion-icon>
+                <h3>DAA Notes</h3>
+                <p>Data Analysis and Algorithms (DAA) involves the study and application of efficient algorithms for processing, analyzing, and deriving insights from data.</p>
+                <a href="https://drive.google.com/file/d/1KvgI9muhMNIZryYQAhr9l1APAs5fCqmV/view?usp=sharing" class="button download-button">Download</a>            </div>
+
+
+            <div class="service-box">
+     
+                <ion-icon name="book" class="service-icon"></ion-icon>
+                <h3>DW Notes</h3>
+                <p>Data Warehousing involves the process of collecting, organizing, and storing large volumes of structured and unstructured data from various sources within an organization.</p>
+                <a href="https://drive.google.com/file/d/1JbRzcz4Y4fCgsHKJSPhpPR_IoSFLQLFw/view?usp=sharing" class="button download-button">Download</a>            </div>
+
+            <div class="service-box">
+     
+                <ion-icon name="book" class="service-icon"></ion-icon>
+                <h3>Python Notes</h3>
+                <p>Python is a versatile and high-level programming language known for its simplicity and readability.Python executed the code line by line.</p>
+                <a href="https://drive.google.com/file/d/1KMBWfGjJ507kohgbFhS7EEhhyIorZYSw/view?usp=sharing" class="button download-button">Download</a>            </div>
+
+            <div class="service-box">
+              
+
+             
+                <ion-icon name="laptop"class="service-icon"></ion-icon>
+                <h3>SQL Notes</h3>
+                <p>SQL, or Structured Query Language, is a specialized programming language used for managing and querying databases.</p>
+                <a href="https://drive.google.com/file/d/1LB2QC2hYZEW7baICwSlHfBlfRPSsLOOY/view?usp=sharing" class="button download-button">Download</a>           
+            </div>
+
+            <div class="service-box">
+     
+                <ion-icon name="book" class="service-icon"></ion-icon>
+                <h3>HTML Notes</h3>
+                <p>HyperText Markup Language, is the standard markup language used to create the structure and content of web pages. </p>
+                <a href="https://drive.google.com/file/d/1L-TbPG9ZQm27qaJdoQf6_vLRKjjHHwXI/view?usp=sharing" class="button download-button">Download</a>
+            </div>
+
+
+
+            <div class="service-box">
+     
+                <ion-icon name="book" class="service-icon"></ion-icon>
+                <h3>CSS Notes</h3>
+                <p>Cascading Style Sheets, is a stylesheet language used to control the layout, presentation,</p>
+                <a href="https://drive.google.com/file/d/1L3MlOwhrF_iPCgMdbWjhoZWyV8OYz6zk/view?usp=sharing" class="button download-button">Download</a>            </div>
+
+
+
+            <div class="service-box">
+     
+                <ion-icon name="book" class="service-icon"></ion-icon>
+                <h3>JavaScript Notes</h3>
+                <p>JavaScript is a versatile and widely used programming language that enables interactivity and dynamic behavior on webpages.JavaScript is used to make pages interactive.</p>
+                <a href="https://drive.google.com/file/d/1JsDWu3tX55E0gWG_goamW735RCzh4av4/view?usp=sharing" class="button download-button">Download</a>            </div>
+
+
+
+            <div class="service-box">
+     
+                <ion-icon name="book" class="service-icon"></ion-icon>
+                <h3>React Js Notes</h3>
+                <p>Developed and maintained by Facebook and a community of developers, React allows developers to create interactive, reusable UI components that efficiently update when data changes.</p>
+                <a href="https://drive.google.com/file/d/1Jt584WdF5hxa2c5GlZ0Jq08FEd4KoMR2/view?usp=sharing" class="button download-button">Download</a>            </div>
+
+            <div class="service-box">
+     
+                <ion-icon name="book" class="service-icon"></ion-icon>
+                <h3>Express JS Notes</h3>
+                <p>Express.js,commonly known as Express.Express.js is a minimal and flexible Node.js web application framework that provides a robust set of features for developing web and mobile applications.</p>
+                <a href="https://drive.google.com/file/d/1LD7TtWzqakdy-zSSYtLhXiQJybzpSbqU/view?usp=sharing" class="button download-button">Download</a>            </div>
+
+        </div>
+    </section>
+
+
+       
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+    <div class="container grid-list">
+
+      <div class="footer-brand">
+
+        
+        <a href="#" class="logo">
+          <img src="./assets/images/algologonew.svg" width="80" height="24" alt="AlgoPrime" class="logo-light">
+        </a>
+
+        <p class="footer-text">
+          &copy; 2023 AlgoPrime. <br> All rights reserved.
+        </p>
+
+        <ul class="social-list">
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.instagram.com/algo_prime/" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-whatsapp"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <ul class="footer-list">
+
+        <li>
+          <p class=" footer-list-title">Get in Touch</p>
+        </li>
+
+        <li>
+          <address class="footer-text">
+            Ichalkaranji,Maharashtra 416-115.
+          </address>
+        </li>
+
+        <li>
+          <a href="mailto:info@email.com" class="footer-link">algoPrime.infotech@gmail.com</a>
+        </li>
+
+      
+
+      </ul>
+
+      <ul class="footer-list">
+
+        <li>
+          <p class="footer-list-title">Learn More</p>
+        </li>
+
+        <li>
+          <a href="index.html" class="footer-link">Home</a>
+        </li>
+
+        <li>
+          <a href="about.html" class="footer-link">About Us</a>
+        </li>
+
+        <li>
+          <a href="#" class="footer-link">Labs</a>
+        </li>
+
+        <li>
+          <a href="intrenship.html" class="footer-link">Internship</a>
+        </li>
+
+        <li>
+          <a href="services.html" class="footer-link">Services</a>
+        </li>
+        
+
+      </ul>
+
+      <div class="footer-list">
+
+        <p class="footer-list-title">Our Newsletter</p>
+
+        <p class="footer-text">
+          Subscribe to our newsletter to get our news & deals delivered to you.
+        </p>
+
+        <form action="" class="input-wrapper">
+          <input type="email" name="email_address" placeholder="Email Address" required class="input-field">
+
+          <button type="submit" class="submit-btn">Join</button>
+        </form>
+
+      </div>
+
+    </div>
+  </footer>
+
+    
+  
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
+</body>
+</html>

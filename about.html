@@ -1,0 +1,1922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<link rel="stylesheet" href="https://kit.fontawesome.com/a076d05399.js">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<style>
+
+
+
+/*-----------------------------------*\
+  #CUSTOM PROPERTY
+\*-----------------------------------*/
+
+:root {
+
+/**
+ * colors
+ */
+ --violet-blue-crayola: hsla(234, 50%, 64%, 1);
+--dark-cornflower-blue_a7: hsla(214, 88%, 27%, 0.07);
+--white: hsla(0, 0%, 100%, 1);
+--white_a3: hsla(0, 0%, 100%, 0.03);
+--white_a8: hsla(0, 0%, 100%, 0.08);
+--white_a12: hsla(0, 0%, 100%, 0.12);
+--white_a70: hsla(0, 0%, 100%, 0.7);
+--cultured: hsla(220, 20%, 97%, 1);
+--lavender-web: hsla(233, 52%, 94%, 1);
+--cadet-blue-crayola: hsla(220, 12%, 70%, 1);
+--cadet-blue-crayola_a20: hsla(222, 23%, 71%, 0.2);
+--charcoal: hsla(218, 22%, 26%, 1);
+--raisin-black: hsla(216, 14%, 14%, 1);
+--light-gray: hsla(0, 0%, 79%, 1);
+--blue-crayola: hsla(219, 72%, 56%, 1);
+--black-coral: hsla(220, 12%, 43%, 1);
+/**
+ * typography
+ */
+--ff-manrope: 'Manrope', sans-serif;
+--fs-1: calc(2.7rem + 1.38vw);
+--fs-2: calc(2.6rem + .66vw);
+--fs-3: 2.2rem;
+--fs-4: 1.9rem;
+--fs-5: 1.
+/** 
+ * spacing
+ */
+
+--section-padding: 90px;
+
+/**
+ * box shadow
+ */
+
+--shadow-1: 0 0 20px hsla(216, 14%, 14%, 0.05);
+--shadow-2: 0 0 0 0.05rem hsla(214, 88%, 27%, 0.08), 0 0 1.25rem hsla(216, 14%, 14%, 0.06);
+--shadow-3: 0 0 1.25rem hsla(216, 14%, 14%, 0.04);
+
+/**
+ * border radius
+ */
+
+--radius-circle: 50%;
+--radius-pill: 100px;
+--radius-10: 10px;
+--radius-8: 8px;
+--radius-6: 6px;
+
+/**
+ * transition
+ */
+
+--transition-1: 0.25s ease;
+--transition-2: 0.5s ease;
+--transition-3: 0.3s ease-in-out;
+
+}
+
+
+
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Add your existing CSS styles here */
+
+.blue-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px;
+  background-color: #3498db; /* Set the background color to #3498db */
+  color: white;
+}
+.title, .subheading, .stars {
+  color: white; /* Set the text color to white */
+}
+.left-side {
+  flex: 1;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.subheading {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.stars {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.apply-button {
+  background-color: white;
+color: #4169E1;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.right-side {
+  flex: 1;
+  text-align: center;
+}
+
+.personal-photo {
+  max-width: 250px;
+  border-radius: 50%;
+}
+    /* Updated styles for the about-section */
+    .about-section {
+      display: flex;
+      align-items: center;
+      padding: 50px;
+      background-color: #f9f9f9; /* Light gray background */
+      border-radius: 15px; /* Rounded corners */
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Soft box shadow */
+      margin-bottom: 20px; /* Some spacing between sections */
+    }
+
+    .about-card {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 50px;
+    }
+
+    .about-card img {
+      max-width: 100px; /* Larger profile picture */
+      border-radius: 50%;
+      transition: transform 0.3s;
+    }
+
+    .about-card img:hover {
+      transform: scale(1.1);
+    }
+
+    .about-content {
+      flex: 1;
+      animation: slideInFromRight 1s ease-in-out; 
+    }
+
+    @keyframes slideInFromRight {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .about-title {
+      font-size: 36px; /* Larger title */
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #333; /* Dark color */
+    }
+
+    .about-subheading {
+  font-size: 24px; /* Adjusted subheading font size */
+  margin-bottom: 10px;
+  color: black; /* Slightly darker color */
+  font-weight: bold; /* Make the text bold */
+  text-transform: uppercase; /* Convert text to uppercase */
+  background-color: #f9f9f9; /* Light gray background */
+  padding: 10px 20px; /* Add some padding for spacing */
+  border-radius: 10px; /* Add rounded corners */
+  display: inline-block; /* Display as inline block */
+  border: 2px solid #3498db; /* Border color */
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* Smooth transition */
+}
+
+.about-subheading:hover {
+  background-color: #3498db; /* Change background on hover */
+  color: white; /* Change text color on hover */
+}
+
+    .about-description {
+      font-size: 18px; /* Adjusted description font size */
+      line-height: 1.6; /* Improved readability with increased line height */
+      color: #666; /* Dark gray color */
+    }
+  /* Updated styles for the our-story-section */
+  .our-story-section {
+      display: flex;
+      align-items: center;
+      padding: 50px;
+      background-color: #f2f2f2; /* Light gray background */
+      border-radius: 15px; /* Rounded corners */
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Soft box shadow */
+      margin-bottom: 20px; 
+      overflow: hidden; 
+    }
+
+    .our-story-content {
+      flex: 1;
+      animation: slideInFromLeft 1s ease-in-out; /* Animation for sliding in from the left */
+    }
+
+    @keyframes slideInFromLeft {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .our-story-title {
+      font-size: 36px; /* Larger title */
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #333; /* Dark color */
+    }
+
+    .our-story-subheading {
+      font-size: 24px; /* Adjusted subheading font size */
+      margin-bottom: 10px;
+      color: #555; /* Slightly darker color */
+    }
+
+    .our-story-description {
+      font-size: 18px; /* Adjusted description font size */
+      line-height: 1.6; /* Improved readability with increased line height */
+      color: #666; /* Dark gray color */
+    }
+/* Style for the founders section */
+.founders-section {
+  text-align: center;
+  padding: 50px 0;
+  font-size: 600;
+  background-color: #f2f2f2;
+}
+
+/* Style for the founder cards */
+.card {
+  flex: 0 0 calc(33.33% - 20px); /* Three cards per row with spacing */
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+  margin-right: 20px; /* Add spacing between cards */
+  display: inline-block; /* Display cards in a horizontal line */
+}
+
+/* Reduce the size of the card images */
+.card img {
+  max-width: 80px; /* Adjust the max-width value to your preferred size */
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+/* Style for card titles */
+.card-title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.name {
+  font-size: 24px;
+  margin-bottom: 5px; /* Adjust the margin to reduce the gap */
+}
+/* Style for card subheadings */
+.card-subheading {
+  font-size: 0.8rem; /* Reduce subheading font size */
+  color: #666;
+  margin-bottom: 10px;
+}
+
+/* Style for card descriptions */
+.card-description {
+  font-size: 0.7rem; /* Reduce description font size */
+  color: #777;
+}
+
+/* Style for founders buttons if needed */
+.founders-buttons {
+  margin-top: 20px;
+}
+
+.founders-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px; /* Reduce button font size */
+  color: #333;
+}
+
+.arrow {
+  vertical-align: middle;
+}
+
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-section,
+.right-section {
+  flex: 1;
+  text-align: center;
+  padding: 20px;
+}
+
+.founders-title {
+  font-size: 24px;
+}
+
+.know-more-button {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.horizontal-line {
+  border-top: 2px solid #000;
+  margin: 20px 0;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  margin: 0 auto;
+}
+
+.name {
+  font-size: 24px;
+}
+
+.subheading {
+  font-size: 18px;
+}
+
+/* Add styles for the Our Story section */
+.our-story-section {
+  background-color: #f2f2f2;
+  padding: 50px;
+  color: #333; /* Set text color */
+}
+
+.our-story-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  /* Add any other styles you prefer */
+}
+
+.our-story-subheading {
+  font-size: 18px;
+  margin-bottom: 10px;
+  /* Add any other styles you prefer */
+}
+
+.our-story-description {
+  font-size: 16px;
+  line-height: 1.5;
+  /* Add any other styles you prefer */
+}
+/* Style for the Meet Our Founders title */
+.founders-title {
+  font-size: 2rem; /* Increase the font size */
+  font-weight: bold;
+  margin-bottom: 30px; /* Add a gap of 30px at the bottom */
+  color: #333;
+}
+
+/* Style for the Meet Our Founders subheading */
+.founders-subheading {
+  margin-bottom: 10px;
+  font-size: 1.5rem; /* Increase the font size */
+  color: #666;
+}
+
+/* Reset and global styles */
+
+/* Add new section colors */
+
+
+.about-section {
+  background-color: white; /* Green color */
+  color: black; /* White text */
+}
+
+.our-story-section {
+  background-color: #fff; /* Orange color */
+  color: #333; /* Dark text */
+}
+
+.founders-section {
+  background-color: white; /* Purple color */
+  color: black; /* White text */
+}
+
+
+
+/* New hover effect */
+.apply-button:hover, .founders-button:hover {
+  background:   #e67e22;
+  color: #fff;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.about-card img:hover {
+  transform: scale(1.15);
+}
+
+.card {
+  /* Updated background styles */
+  background: linear-gradient(45deg, #3498db, #FFFFFF);
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+  width: calc(30% - 20px); /* Adjust the width based on the number of cards in a row */
+  display: inline-block; /* Display inline so they are in a row */
+  box-sizing: border-box; /* Ensure padding and border are included in the width */
+  margin-right: 20px; /* Adjust margin to create spacing between cards */
+}
+.card h2 {
+  font-size: 2rem;
+}
+
+.card .text {
+  font-size: 1.5rem;
+}
+
+/* Rest of your existing styles */
+
+.links a {
+  padding: 8px 16px;
+  margin: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+/* New hover effect for buttons */
+.links a:hover {
+  background: #fff; /* White background */
+  color: #3498db; /* Blue text */
+}
+
+/* Adjusted card image style */
+.card img {
+  width: 80px; /* Adjust the width to your desired size */
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 20px; /* Increased margin */
+}
+
+/* Adjusted card title style */
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px; /* Increased margin */
+  color: #fff; /* White text */
+}
+
+/* Adjusted card subheading style */
+.card-subheading {
+  font-size: 1rem;
+  color: #f1c40f; /* Yellow text */
+  margin-bottom: 10px; /* Increased margin */
+}
+
+/* Adjusted card description style */
+.card-description {
+  font-size: 0.9rem;
+  color: #fff; /* White text */
+}
+
+/* Adjusted card buttons style */
+.links button {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  border-radius: 5px;
+}
+
+/* New hover effect for buttons */
+.links button:hover {
+  background: #fff; /* White background */
+  color: #3498db; /* Pink text */
+}
+
+/* Existing hover effect for cards */
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+/* Hover effect for the corner decoration */
+.card::before {
+  transition: all 0.3s ease-in-out;
+}
+
+.card:hover::before {
+  border-width: 0 0 50px 50px;
+  border-color: transparent transparent #ff9a9e transparent;
+}
+.name h4{
+  font-size: 16px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .stats li {
+    text-align: center;
+    width: 33%; /* Equal width for each stat */
+  }
+
+  .stats li h3 {
+    margin-bottom: 0;
+  }
+  .card .name h3 {
+    font-size: 16px;
+    margin-bottom: 5px; /* Add margin between h3 and h4 */
+  }
+
+  .card .name h4 {
+    font-size: 14px; /* Adjust font size of h4 */
+  }
+
+  .card .text {
+    margin-top: 10px; /* Add some space between p and h3 */
+  }
+  .stats li {
+    text-align: center;
+    width: 33%; /* Equal width for each stat */
+    margin-bottom: 30px; /* Add 30px margin between each list item */
+  }
+  .text {
+    margin-bottom: 25px; /* Add 40px margin below the p element */
+  }
+  .founders-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #333; /* Dark color */
+    text-align: center;
+    text-transform: uppercase; /* Uppercase text */
+  }
+
+  .founders-subheading {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: #666; /* Slightly lighter color */
+    text-align: center;
+  }
+  
+  .about-card img {
+  max-width: 100%;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.about-card img:hover {
+  transform: scale(1.1);
+}
+.about-subheading {
+  font-size: 24px; /* Adjust the font size to your preference */
+}
+  /* CSS for the image in the our-story-photo */
+.our-story-photo img {
+  max-width: 100%;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.our-story-photo img:hover {
+  transform: scale(1.1);
+}
+
+/* CSS to style the our-story-content */
+.our-story-content {
+  max-width: 50%; /* Adjust the width of the content area as needed */
+}
+
+
+.our-story-title {
+  font-size: 36px; 
+}
+
+
+.our-story-subheading {
+  font-size: 24px; 
+}
+
+
+.our-story-description {
+  font-size: 18px; /* Adjust the font size for the description */
+  margin-top: 10px; /* Adjust the top margin as needed */
+}
+.square-image {
+  width: 500px; /* Adjust the width to your desired size */
+  height: 500px; /* Adjust the height to your desired size */
+  object-fit: cover; 
+  border-radius: 50%; /
+}
+.follow-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #0077B5; /* LinkedIn's brand color */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px; /* Add margin to create a gap */
+}
+
+.follow-button:hover {
+  background-color: #005f91; /* Darker color on hover */
+}
+
+
+
+
+
+
+
+
+/* all text are include  */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li { list-style: none; }
+
+a,
+img,
+span,
+input,
+button,
+ion-icon { display: block; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img { height: auto; }
+
+input,
+button {
+  background: none;
+  border: none;
+  font: inherit;
+}
+
+input { width: 100%; }
+
+button { cursor: pointer; }
+
+ion-icon { pointer-events: none; }
+
+address { font-style: normal; }
+
+html {
+  font-family: var(--ff-manrope);
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--white);
+  color: var(--black-coral);
+  font-size: 1.6rem;
+  line-height: 1.7;
+}
+
+body.nav-active { overflow: hidden; }
+
+::-webkit-scrollbar { width: 10px; }
+
+::-webkit-scrollbar-track { background-color: hsl(0, 0%, 98%); }
+
+::-webkit-scrollbar-thumb { background-color: hsl(0, 0%, 80%); }
+
+::-webkit-scrollbar-thumb:hover { background-color: hsl(0, 0%, 70%); }
+
+
+/*-----------------------------------*\
+  #FOOTER
+\*-----------------------------------*/
+
+.footer {
+  background-color: var(--charcoal);
+  padding-block: 60px 100px;
+  color: var(--light-gray);
+}
+
+.footer-brand .footer-text { margin-block: 20px; }
+
+.footer .social-list { color: var(--white); }
+
+.footer-list-title {
+  color: var(--white);
+  margin-block-end: 16px;
+}
+
+.footer-link {
+  padding-block: 4px;
+  transition: var(--transition-1);
+}
+
+.footer-link:is(:hover, :focus-visible) { color: var(--violet-blue-crayola); }
+
+.input-wrapper {
+  position: relative;
+  margin-block-start: 25px;
+}
+
+.input-field {
+  background-color: var(--white_a3);
+  color: var(--light-gray);
+  font-size: var(--fs-7);
+  padding: 12px 16px;
+  border: 1px solid var(--dark-cornflower-blue_a7);
+  border-radius: var(--radius-6);
+  box-shadow: var(--shadow-3);
+  outline: none;
+}
+
+.input-field::placeholder { color: inherit; }
+
+.submit-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 0 var(--radius-6) var(--radius-6) 0;
+  background-color: var(--violet-blue-crayola);
+  color: var(--white);
+  padding-inline: 24px;
+  font-weight: var(--fw-700);
+}
+
+
+
+ /* Styles for the popup button section */
+ .popup-button-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+}
+
+.popup-button {
+  display: inline-block;
+}
+
+.popup-link {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #007BFF;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.popup-link:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+.popup-link::before {
+  content: "\1F615 "; /* Unicode for the 😕 emoji */
+}
+/* about us homepage  */
+/* CSS to achieve a consistent card height and width and display in a horizontal line */
+.grid-listt {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.grid-listt li {
+  width: 300px; /* Adjust the width as needed */
+  margin-right: 20px; /* Adjust the margin as needed */
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  padding: 20px;
+  text-align: center;
+  height: 100%;
+}
+
+.card-icon {
+  margin-bottom: 10px;
+}
+
+.card-title {
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 16px;
+  flex: 1; /* Allow the text to take remaining vertical space */
+}
+
+.btn-text {
+  color: blue;
+  display: inline-flex; /* Display the "Learn More" link inline */
+  align-items: center; /* Align items vertically */
+}
+
+.btn-text span {
+  margin-right: 5px; /* Add some spacing between the link text and the icon */
+}
+
+.btn-text:hover {
+  text-decoration: underline;
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(-50%);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+
+
+
+/* Existing styles remain the same */
+
+/* Media query for small screens */
+@media (max-width: 768px) {
+  .footer {
+    padding-block: 30px;
+  }
+
+  .footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer .footer-brand,
+  .footer .footer-list {
+    margin-bottom: 20px;
+  }
+
+  .footer .footer-list {
+    width: 100%;
+  }
+
+  .footer .footer-list ul {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  .footer .footer-list li {
+    margin-bottom: 10px;
+  }
+
+  .footer .footer-list .footer-list-title {
+    margin-bottom: 10px;
+  }
+
+  .footer .social-list {
+    justify-content: center;
+  }
+
+  .footer .input-wrapper {
+    margin-top: 20px;
+  }
+}
+
+/* Media query for even smaller screens */
+@media (max-width: 576px) {
+  .footer .footer-brand img {
+    max-width: 100px;
+    height: auto;
+  }
+}
+
+
+
+
+/* about us responsive on homepage */
+/* Adjustments for smaller screens */
+@media (max-width: 1200px) {
+  .service-card {
+    flex: 1 1 40%; /* Cards take 40% of the width on medium-sized screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .service-card {
+    flex: 1 1 100%; /* Cards take full width on small screens */
+  }
+}
+
+/* Hide scrollbar for the entire page on smaller screens */
+@media (max-width: 768px) {
+  body {
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: transparent transparent; /* Firefox */
+  }
+
+  body::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}
+
+
+/* game */
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown button style */
+.dropdown-toggle {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Dropdown links */
+.dropdown-content a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown content when the button is clicked */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+/* Styles for the popup */
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #3498db; /* Blue background */
+  color: #fff; /* White text */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  max-width: 400px;
+  width: 80%;
+  text-align: center;
+  border-radius: 10px;
+  opacity: 0; /* Initially transparent */
+  animation: fadeIn 0.5s forwards; /* Fade-in animation */
+}
+
+.popup-content {
+  padding: 20px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #ff5555; /* Red hover color */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.popup-content {
+  text-align: center;
+}
+
+
+.content-box {
+  border: 2px solid #3498db;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 300px;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
+  transition: box-shadow 0.3s ease-in-out; 
+  background-color: #ffffff; /* Transition effect for box shadow */
+}
+
+.content-box:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Hover effect for box shadow */
+}
+
+.image-container {
+  text-align: center;
+}
+
+.popup-image {
+  width: 100%;
+  max-height: 200px;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out; /* Transition effect for image */
+}
+
+.popup-image:hover {
+  transform: scale(1.1); /* Hover effect for image */
+}
+
+.popup-text {
+  font-size: 30px; /* Increased font size */
+  color: #3498db;
+  font-weight: bold;
+  font-family: 'Verdana', sans-serif; /* Changed font family */
+  margin-top: 20px; /* Increased top margin for spacing */
+  line-height: 1.5; /* Improved line height for readability */
+}
+
+.popup-text:hover {
+  color: #e74c3c; /* Hover effect for text color */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 767px) {
+  .content-box {
+    max-width: 90%; /* Adjusted max-width for mobile */
+  }
+
+  .popup-image {
+    max-height: 150px; /* Adjusted max-height for mobile */
+  }
+}
+
+.apply-button {
+  background-color: #ff6b6b; /* Background color - a vibrant red */
+  color: #ffffff; /* Text color - white */
+  padding: 14px 28px; /* Padding for a larger button */
+  border: none; /* No border */
+  border-radius: 8px; /* Rounded corners for a softer look */
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s, color 0.3s; /* Transition for hover effect */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+}
+
+.apply-button:hover {
+  background-color: var(--charcoal) /* Darker red on hover for an interactive effect */
+}
+
+/* Centering the button */
+.popup-content {
+  text-align: center;
+}
+
+.popup-content .apply-button {
+  margin: 20px auto;
+}
+
+/* Optional: Add hover animation */
+.apply-button:hover {
+  transform: translateY(-3px);
+}
+
+/* Style for the paragraph to make it bigger */
+.popup-content p {
+  font-size: 24px; /* Adjust the font size as needed */
+}
+
+/* Style for the content wrapper */
+.content-wrapper {
+  display: flex;
+}
+
+/* Style for the image */
+.popup-image {
+  max-width: 100%;
+}
+
+
+/* Optional: Add hover effect */
+.navbar-link:hover {
+  color: #3498db; /* Adjust the hover color as needed */
+}
+
+
+/* Additional styles for other elements within the header */
+/* Adjust as needed */
+.btn {
+  display: inline-block;
+  margin-left: 20px; /* Add spacing between elements */
+}
+
+/* Additional styles for the blue-section text */
+.blue-section {
+  color: black; /* Text color for the blue-section */
+}
+.navbar {
+  margin-bottom: 25px; /* Adjust the margin to create the desired gap */
+}
+.footer-list-title.h4 {
+  display: inline-block; /* Display as inline block */
+  margin: 0 10px 0 0; /* Adjust margin as needed */
+}
+.footer-list .footer-list-title.h4 + p {
+  margin-top: 10px; /* Adjust margin-top as needed */
+}
+.links .follow-button {
+  padding: 15px 30px; /* Adjust padding to make the button larger */
+  font-size: 1em; /* Adjust font size to make the button larger */
+}
+.name h2 {
+  font-size: 1em; /* Adjust the font size to make the heading larger */
+}
+.right-side img.personal-photo {
+  margin-left: 30px; /* Adjust to move the image to the right by 30px */
+}
+.right-side img.personal-photo {
+  margin-left: auto;
+}
+
+
+
+
+
+
+.founders-title {
+    font-size: 48px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #3498db, #2ecc71); /* Linear gradient from blue to green */
+    -webkit-background-clip: text; /* Clip the text to the background gradient */
+    background-clip: text;
+    color: transparent; /* Make the text color transparent to reveal the gradient */
+    text-align: center;
+    padding: 20px;
+    display: inline-block; /* Adjust the display property for the gradient effect */
+  }
+
+
+
+
+
+
+/* Responsive styles for mobile devices */
+
+@media (max-width: 767px) {
+    /* Adjust margin and padding for smaller screens */
+    .content, .blue-section, .about-section, .our-story-section, .founders-section {
+        margin: 20px;
+        padding: 10px;
+    }
+
+    .personal-photo, .square-image {
+        width: 100%; /* Make the image fill the container */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .about-section, .our-story-section, .founders-section {
+        margin-top: 0; /* Adjust the top margin for smaller screens */
+    }
+
+    .about-card, .about-content {
+        width: 100%;
+    }
+
+    .our-story-content, .our-story-photo {
+        width: 100%;
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+
+    /* Responsive styles for founder cards */
+    .card {
+        display: block;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .card .infos {
+        padding: 20px;
+        box-sizing: border-box;
+    }
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  /* Adjust styles for the slideshow */
+  .slide {
+    height: 200px; /* Adjust the height of the slides for mobile */
+  }
+
+  .content {
+    margin-top: 10px; /* Adjust the margin for the content */
+  }
+
+  /* Adjust styles for the blue section */
+  .blue-section {
+    margin-top: 10px; /* Adjust the margin for the blue section */
+  }
+
+  /* Adjust styles for the about section */
+  .about-section {
+    margin-top: 0; /* Remove margin for the about section */
+  }
+
+  /* Adjust styles for the our story section */
+  .our-story-section {
+    margin-top: -10px; /* Adjust the margin for the our story section */
+  }
+
+  /* Adjust styles for the founders section */
+  .founders-section {
+    margin-top: 0; /* Remove margin for the founders section */
+  }
+
+  /* Adjust styles for founder cards */
+  .card {
+    margin-bottom: 20px; /* Adjust the margin between founder cards */
+  }
+}
+
+/* header new */
+
+    /* Add this CSS to your existing styles */
+    .dropdown-content {
+      display: none;
+    }
+    .dropdown-content.visible {
+      display: block;
+    }
+    * {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    border-radius: 0; /* Fixed the typo in "border-radius" */
+  }
+
+  body {
+    font-family: monospace;
+  }
+
+  nav {
+    background: var(--raisin-black);
+    height: 80px;
+    width: 100%;
+  }
+
+
+  label.logo {
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+  }
+
+  nav ul {
+    float: right;
+    margin-right: 200px;
+  }
+
+  nav ul li {
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+  }
+
+  nav ul li a {
+    color: #FFF;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+  }
+
+  a.active, a:hover {
+    background: #1b9bff;
+    transition: .5s;
+  }
+
+  header .bars-icon {
+    color: #333;
+    font-size: 20px;
+  }
+
+  .checkbtn {
+    font-size: 30px;
+    color: #FFF;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+  }
+
+  #check {
+    display: none;
+  }
+
+  @media (max-width: 952px) {
+    label.logo {
+      font-size: 30px;
+      padding-left: 50px;
+    }
+
+    nav ul li a {
+      font-size: 16px;
+    }
+  }
+/* ... (existing CSS) ... */
+
+@media (max-width: 858px) {
+  .checkbtn {
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+  }
+
+  ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #2c3e50;
+    top: 80px;
+    left: -100%;
+    text-align: left; /* Change text-align to left */
+    transition: all .5s;
+  }
+
+  nav ul li {
+    display: block;
+    text-align: center; /* Center the text in the dropdown */
+  }
+
+  nav ul li a {
+    font-size: 20px;
+    padding: 12px 20px; /* Adjust padding */
+  }
+
+  
+
+  a:hover, a.active {
+    background: none;
+    color: #0082e6;
+  }
+
+  #check:checked ~ ul {
+    left: 0;
+  }
+
+  /* Adjust the dropdown display */
+  li.dropdown:hover .dropdown-content {
+    display: block;
+    position: relative;
+    width: 100%;
+    left: 0;
+  }
+  
+  li.dropdown .dropdown-content a {
+    color: black;
+    padding: 12px 20px; /* Adjust padding */
+    text-decoration: none;
+    display: block;
+  }
+  
+  li.dropdown .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+}
+
+  
+nav ul li a:hover,
+nav ul li a.active {
+  background: none;
+  color: #FFF;
+}
+nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    body {
+      /* Add some padding to the body to avoid content hiding behind the navbar */
+      padding-top: 80px; /* Adjust this value based on your navbar's height */
+      font-family: 'Poppins',sans-serif;
+    }
+
+    @media (max-width: 858px) {
+      .dropdown {
+        display: block;
+        text-align: center;
+        width: 100%;
+      }
+
+      .dropdown .dropbtn {
+        display: block;
+        width: 100%;
+        text-align: center;
+      }
+      
+      .dropdown .dropdown-content {
+        text-align: center;
+      }
+    }
+
+
+
+    
+    /* Optional: Add hover effect */
+    .logo-text:hover {
+      color:#ff5500; /* Change text color on hover */
+    }
+
+    .footer .logo .logo-text {
+      font-weight: bold;
+      margin-right: 100px;
+    }
+
+    .footer .footer-text {
+      margin-top: 20px;
+    
+    }
+
+    @media (max-width: 767px) {
+  /* Adjust margins and paddings for mobile */
+  nav {
+    margin-bottom: -1000px;
+  }
+
+  .blue-section {
+    margin-top: 10px;
+  }
+}
+
+.blue-section .right-side img.personal-photo {
+  margin-top: -20px; /* Adjust the margin-top to move the image slightly towards the top */
+  margin-left: 250px; /* Adjust the margin-left to move the image slightly towards the left */
+}
+@media (max-width: 767px) {
+  .blue-section .right-side img.personal-photo {
+    margin-top: -20%; /* Adjust the margin-top for smaller screens */
+    margin-left: -0%; /* Adjust the margin-left for smaller screens */
+  }
+}
+ 
+.dropdown-content a:hover {
+  background-color: var(--blue-crayola);
+  color: white; /* Change text color on hover */
+}
+
+
+.btn.btn-primary {
+  text-decoration: none;
+  padding: 10px 20px;
+  border: none;
+  color: white;
+  background-color: var(--primary-color);
+  border-radius: 15px; /* Adjust the border radius value as needed */
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+</style>
+</head>
+<body>
+   
+<!-- header -->
+<nav>
+  <input type="checkbox" id="check">
+  <label for="check" class="checkbtn">
+    <i class="fas fa-bars"></i>
+  </label>
+  <label class="logo">AlgoPrime</label>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li class="dropdown" id="labsDropdown">
+      <a href="#" class="dropbtn" onclick="toggleDropdown(event)">Labs <i class="fas fa-caret-down"></i></a>
+      <div class="dropdown-content" id="labsDropdownContent">
+        <a href="compiler.html">Compiler</a>
+        <a href="notes.html">Notes</a>
+        <a href="Guid.html">Guidance</a>
+      </div>
+    </li>
+    <li><a href="intrenship.html">Internship</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="contact.html" class="btn btn-primary">Contact Us</a></li> <!-- Moved "Contact Us" button inside the list -->
+  </ul>
+</nav>
+
+
+
+
+</div>
+
+<section>
+  <!-- Your section content goes here -->
+</section>
+
+
+<div style="margin-bottom: 50px;"></div> <!-- Adjusted margin -->
+    <!-- Slideshow -->
+    <div id="arrow-left" class="arrow"></div>
+    <div class="slide slide1"></div>
+    <div class="slide slide2"></div>
+    <div class="slide slide3"></div>
+    <div id="arrow-right" class="arrow"></div>
+    <div class="content" style="margin-top: 40px;"></div>
+    <!-- Blue Section -->
+    <div class="blue-section" style="margin-top: 10px; color: black;"> <!-- Adjusted margin -->
+      <div class="left-side">
+        <div class="title">A platform for the next generation of learners!</div>
+        <div class="subheading">A place for imparting to next-generation students</div>
+        <div class="stars">
+          ★★★★★ 
+        </div>
+        <a href="intrenship.html"><button class="apply-button">Apply now</button></a>
+      </div>
+      <div class="right-side">
+        <img class="personal-photo" src="assets/images/20230924_123845_0000-removebg-preview (1).png" alt="Your Photo">
+      </div>
+    </div>
+    
+    <!-- New About Section -->
+    <div class="about-section">
+      <div class="about-card">
+        <img src="assets/images/8598268-fotor-20230924135056.png" alt="Team work" class="square-image">
+      </div>
+      <div class="about-content">
+        <div class="about-title">About Us</div>
+        <div class="about-subheading">Hello! Welcome to AlgoPrime InfoTech. </div>
+        <div class="about-description">
+          🚀 Discover exciting virtual internships across diverse domains at Algoprime Infotech! 💡 Our team of experts specializes in web development and data science, bringing you hands-on experience and insightful guidance.<br>
+
+          🌐 Explore the world of technology with us! Access exclusive notes, mentorship, and educational content on YouTube, LinkedIn, and GitHub. 📚 Join us to level up your skills and ignite your career in the tech industry! 🔥
+        </div>
+      </div>
+    </div>
+    
+    
+<!-- Our Story Section -->
+<div class="our-story-section" style="margin-top: -20px;">
+  <div class="our-story-content" style="float: left; width: 60%;">
+    <div class="our-story-title">Our Story</div>
+    <div class="our-story-description">
+      In 2023, during our last year of studying Computer Science and Engineering, we had a big idea 💡. We wanted to help students like us by creating something special - AlgoPrime Infotech.<br>
+
+      We started by researching what students really needed in the tech world 🕵️‍♂️. We wanted to fill the gap between what students learn in their studies and what they need to succeed in the real world. We found out that students wanted to apply what they learned in a practical way and get hands-on experience ✋.<br>
+      AlgoPrime Infotech became a way to empower students, helping them understand the tech world and prepare for a successful future 🚀. It's not just a company; it's a symbol of learning and growth for students everywhere.
+    </div>
+  </div>
+  <div class="our-story-photo" style="float: right; width: 40%;">
+    <img src="assets/images/our story.png" alt="Another Photo" style="width: 80%; margin-right: 60px;">
+  </div>
+  <div style="clear: both;"></div> <!-- Clear the float to prevent content wrapping around the image -->
+</div>
+
+    
+    
+    <!-- Meet Our Founders Section -->
+    
+    <div class="founders-section">
+      <div class="founders-title">Meet Our Founders</div>
+      <div class="founders-content">
+        <div class="founders-subheading">
+         
+        </div>
+        
+        <!-- Founder Cards (You can add more as needed) -->
+        <div class="card">
+          
+          <div class="infos">
+            <div class="name">
+              
+              <h2>Arman Nadaf</h2>
+              <h3>Founder of AlgoPrime Infotech</h3>
+            
+            </div>
+            <p class="text">
+              🌟 Meet the pioneering minds that laid the foundation of Algoprime Infotech !<br>
+              👥 Drawing from their extensive experience and expertise in web development , our founders has played a crucial role in assembling our team of frontend experts.
+            </p>
+            <ul class="stats">
+            
+              
+            </ul>
+              <!-- Add more stats as needed -->
+            </ul>
+            <div class="links">
+              <a href="https://www.linkedin.com/in/arman-nadaf-9b10b9273/" class="follow-button">Follow on LinkedIn</a>
+             
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+         
+          <div class="infos">
+            <div class="name">
+              <h2>Aditya Kulkarni</h2>
+              <h3>Founder of AlgoPrime Infotech</h3>
+            </div>
+            <p class="text">
+              🌟 Meet the pioneering minds that laid the foundation of Algoprime Infotech !<br>
+              👥 Drawing from their extensive experience and expertise in web development , our founders has played a crucial role in assembling our team of frontend and Graphic Design experts.
+            </p>
+            <ul class="stats">
+              
+             
+              <!-- Add more stats as needed -->
+            </ul>
+            <div class="links">
+              <a href=https://www.linkedin.com/in/aditya-kulkarni-%F0%9F%87%AE%F0%9F%87%B3-668303221 class="follow-button">Follow on LinkedIn</a>
+
+              
+            </div>
+          </div>
+        </div>
+
+        
+
+        
+      
+        <div class="founders-section">
+          <div class="founders-title">Meet Our Co-Founders</div>
+          <div class="founders-content">
+            <div class="founders-subheading">
+              
+            </div>
+            <div class="card">
+        
+              <div class="infos">
+                <div class="name">
+                  <h2>Rahul Kurane</h2>
+                  <h3>Executive Manager</h3>
+               
+                </div>
+                <p class="text">
+                  🌟 Meet our accomplished Executive Manager and co-founder of AlgoPrime Infotech!<br>
+                  👥 With a wealth of experience and expertise in web development, Rahul Kurane has been instrumental in shaping our team of tech experts and driving the vision of our company forward as an Executive Manager.
+                </p>
+                <ul class="stats">
+                  
+                 
+                  <!-- Add more stats as needed -->
+                </ul>
+                <div class="links">
+                  <a href=https://www.linkedin.com/in/rahul-kurane-b094b3228 class="follow-button">Follow on LinkedIn</a>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+        
+              <div class="infos">
+                <div class="name">
+                  <h2>Abhishek Udnur</h2>
+                  <h3>Technical Manager & Co-ordinator</h3>
+               
+                </div>
+                <p class="text">
+                  🌟 Meet Abhishek Udnur, our adept Technical Manager and Coordinator at AlgoPrime Technology!<br>
+                  👥 With a keen eye for detail and a wealth of technical knowledge, Abhishek plays a crucial role in managing our projects and ensuring seamless coordination within our tech team. 
+                </p>
+                <ul class="stats">
+                  
+                 
+                  <!-- Add more stats as needed -->
+                </ul>
+                <div class="links">
+                  <a href=http://www.linkedin.com/in/abhishek-udnur  class="follow-button">Follow on LinkedIn</a>
+                </div>
+              </div>
+            </div>
+            
+        <!-- Add more founder cards here as needed -->
+        
+      </div>
+    </div>
+    
+    
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+    <div class="container grid-list">
+
+      <div class="footer-brand">
+        <div class="footer-brand">
+          <span class="logo-text" style="margin-left: 20px;"><b>ALGOPRIME INFOTECH</b></span>
+        </div>
+        <p class="footer-text">
+          &copy; 2023 AlgoPrime. <br> All rights reserved.
+        </p>
+        
+
+        <ul class="social-list">
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.instagram.com/algo_prime/" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href=" https://chat.whatsapp.com/EiSKjIK4XA9G5sSbLiYstX?text=Hi,Welcome to AlgoPrime" target="_blank" class="social-link">
+              <ion-icon name="logo-whatsapp"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <ul class="footer-list">
+
+        <li>
+          <p class=" h4 footer-list-title ">Get in Touch</p>
+        </li>
+
+        <li>
+          <address class="footer-text">
+            Ichalkaranji,Maharashtra 416-115.
+          </address>
+        </li>
+
+        <li>
+          <a href="mailto:info@email.com" class="footer-link">algoPrime.infotech@gmail.com</a>
+        </li>
+
+     
+
+      </ul>
+
+      <ul class="footer-list">
+
+        <li>
+          <p class="h4 footer-list-title">Learn More</p>
+        </li>
+
+        <li>
+          <a href="index.html" class="footer-link">Home</a>
+        </li>
+
+        <li>
+          <a href="about.html" class="footer-link">About Us</a>
+        </li>
+
+        <li>
+          <a href="#" class="footer-link">Labs</a>
+        </li>
+
+        <li>
+          <a href="intrenship.html" class="footer-link">Internship</a>
+        </li>
+
+        <li>
+          <a href="services.html" class="footer-link">Services</a>
+        </li>
+        
+
+      </ul>
+
+      <div class="footer-list">
+
+        <p class="h4 footer-list-title">Our Newsletter</p>
+
+        <p class="footer-text">
+          Subscribe to our newsletter to get our news & deals delivered to you.
+        </p>
+
+        <form action="" class="input-wrapper">
+          <input type="email" name="email_address" placeholder="Email Address" required class="input-field">
+
+          <button type="submit" class="submit-btn">Join</button>
+        </form>
+
+      </div>
+
+    </div>
+  </footer>
+
+    
+  </div>
+
+  <script>
+  function toggleDropdown() {
+      const dropdownContent = document.getElementById('labsDropdownContent');
+      dropdownContent.classList.toggle('visible');
+    }
+
+  </script>
+</body>
+</html>

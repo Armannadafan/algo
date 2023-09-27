@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            background-color: white;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: #051626 !important;
+            z-index: 1000000000;
+            opacity: 1;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        div.one {
+            width: 8vmax;
+            height: 8vmax;
+            border-right: 4px solid white;
+            border-radius: 100%;
+            animation: spinRight 800ms linear infinite;
+        }
+
+        div.one:before,
+        div.one:after {
+            content: '';
+            width: 6vmax;
+            height: 6vmax;
+            display: block;
+            position: absolute;
+            top: calc(50% - 3vmax);
+            left: calc(50% - 3vmax);
+            border-left: 3px solid white;
+            border-radius: 100%;
+            animation: spinLeft 800ms linear infinite;
+        }
+
+        div.one:after {
+            width: 4vmax;
+            height: 4vmax;
+            top: calc(50% - 2vmax);
+            left: calc(50% - 2vmax);
+            border: 0;
+            border-right: 2px solid white;
+            animation: none;
+        }
+
+        @keyframes spinRight {
+            from {
+                transform: rotate(360deg);
+            }
+
+            to {
+                transform: rotate(0deg);
+            }
+        }
+
+        .center {
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .imagmain {
+            text-align: center;
+        }
+
+        .imagmain img {
+            width: 400px;
+            height: 140px;
+            border: px solid black;
+            margin-top: 20px;
+            margin-left: 15px;
+        }
+
+        .start ul li:nth-child(1) {
+            background: url(/imagehere/client-bg-1.png) top no-repeat !important;
+            padding-top: 180px !important;
+        }
+
+        .start ul li:nth-child(odd) {
+            background: url(/process-line-1\ newwwwwwww.png) 65px top no-repeat;
+            padding-top: 100px !important;
+        }
+
+        .start ul li:nth-child(even) {
+            background: url(/neeeeewwprocess-line-2.png) 65px top no-repeat;
+            padding-left: 590px;
+            padding-top: 100px;
+        }
+
+        .start ul li .icon {
+            margin: 30px 0;
+            display: inline-block;
+            height: 124px;
+            margin-right: 30px;
+            width: 124px;
+            text-align: center;
+        }
+
+        .start ul li h4 {
+            color: black;
+            text-transform: uppercase;
+            font-size: 30px;
+        }
+
+        .start ul li .media-body {
+            max-width: 390px;
+        }
+
+        .start ul li p {
+            color: black;
+        }
+
+        .home .process:after {
+            background: url(/imagehere/client-bg-1.png) center top no-repeat;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            content: "";
+            width: 100%;
+            z-index: 1;
+        }
+
+        .home .process:before {
+            position: absolute;
+            top: 0px;
+            content: "";
+            width: 100%;
+            left: 0px;
+            background: white;
+        }
+
+        /* Add a black border to all img elements */
+        img {
+            width: 198px;
+            height: 190px;
+            margin-left: -25px;
+            margin-top: -40px;
+            border: 2px solid black; /* Add a black border around the images */
+            border-radius: 30px;
+            
+        }
+        .imagmain {
+    text-align: center;
+    width: 400px; /* Set the width */
+    height: 300px; /* Set the height */
+    margin: 0 auto; /* Center the div horizontally */
+}
+
+.imagmain img {
+    max-width: 100%; /* Make sure the image fits within the container */
+    max-height: 100%; /* Make sure the image fits within the container */
+    border: 2px solid black;
+}
+
+
+
+      
+
+        
+      
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>ROAD MAP</title>
+</head>
+<body>
+<div id="loader">
+    <div class="center">
+        <div class="one">
+        </div>
+    </div>
+</div>
+<div id="wrap" class="home">
+
+    <div class="imagmain">
+        <img src="/imagehere/download.jpeg" alt="Main Image">
+    </div>
+        <div id="content">
+        <section class="process">
+            <div class="container">
+                <div class="start">
+                    <ul class="row">
+                        <li>
+                            <div class="left">
+                                <div class="icon animate fadeInLeft" data-wow-delay="1.4s">
+                                    <img src="/ea1a329a-73ad-46d6-93f7-77cf0acb6d57.gif" alt="">
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <h4>Fundamentals</h4>
+                                <p>
+                                    <b>Step 1: Fundamentals:-</b>
+
+                                    <br><b>Backend Languages:-</b></br>
+                                    - Choose one:
+                                    1. JavaScript 2.Python 3.Ruby 4.Java 5.C#(Net) 6.PHP
+                                  
+                                    <br><b>Database Fundamentals:</b></b>
+                                    - Learn about relational databases (e.g., MySQL, PostgreSQL) and NoSQL databases (e.g., MongoDB).
+
+                                    <br><b> HTTP and APIs:</b></br>
+                                    - Understand how HTTP works.
+                                    - Learn about RESTful API principles.
+                                   
+                                    <br><b>Resources:</b> </br>
+                                    <br>1. Node.js (if using JavaScript)</br>
+                                    2. Python
+                                    3. Ruby
+                                    4. Java
+                                    5. C# (.NET)
+                                    6. PHP
+                                    7. Go
+
+                                    <b><br>8. Database Fundamentals:</b>
+                                    Introduction to Databases on Coursera
+                                 </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left two">
+                                <div class="icon animate fadeInLeft" data-wow-delay="1.8s">
+                                    <img src="/Website Designer in Harrow London.gif" alt="">
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <h4>Advanced Back-End Development:-</h4>
+                                <p>
+                                    <b>Step 2: Advanced Backend Development</b>
+
+                                    <br><b> Web Frameworks:<br></b>
+                                    - Choose a backend framework based on your language choice.
+                                    - Examples: <a href="https://expressjs.com/">Express.js (Node.js)</a>, <a href="https://docs.djangoproject.com/">Django (Python)</a>, <a href="https://guides.rubyonrails.org/">Ruby on Rails (Ruby)</a>, <a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/">Spring Boot (Java)</a>, <a href="https://docs.microsoft.com/en-us/aspnet/core/">ASP.NET Core (C#)</a>, <a href="https://laravel.com/docs/">Laravel (PHP)</a>, <a href="https://golang.org/doc/">Gin (Go)</a>.
+
+                                    <br><b>API Development:</b><br>
+                                    - Learn to build robust APIs using your chosen framework.
+                                    - Explore authentication and authorization mechanisms.
+
+                                    <br><b>Database Management:</br></b>
+                                    - Dive deeper into database management, including schema design and optimization.
+
+                                    <br><b>Resources:</b></br>
+
+                                    <a href="https://expressjs.com/">1. Express.js (Node.js)</a><br>
+                                    <a href="https://docs.djangoproject.com/">2. Django (Python)</a>
+                                    <a href="https://guides.rubyonrails.org/">3. Ruby on Rails (Ruby)</a>
+                                    <a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/">4. Spring Boot (Java)</a>
+                                    <a href="https://docs.microsoft.com/en-us/aspnet/core/">5. ASP.NET Core (C#)</a>
+                                    <a href="https://laravel.com/docs/">6. Laravel (PHP)</a>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left three">
+                                <div class="icon animate fadeInLeft" data-wow-delay="2s">
+                                    <img src="/img/Data Analytics - Animation.gif" alt="">
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <h4>Specialization and Optimization</h4>
+                                <p>
+                                    <b>Step 3: Specialization and Optimization:-</b>
+
+                                    <br><b> Advanced Topics:</br></b>
+                                    - Choose a specialization such as DevOps, cloud computing (e.g., AWS, Azure, GCP), or microservices architecture.
+                                    - Learn about containerization (Docker) and orchestration (Kubernetes).
+
+                                    <br><b>Security:</br></b>
+                                    - Understand web application security best practices.
+                                    - Explore authentication methods, encryption, and common security vulnerabilities.
+
+                                    <br><b>Projects:</br></b>
+                                    - Create a CRUD (Create, Read, Update, Delete) RESTful API.
+                                    - Implement user authentication and authorization.
+                                    - Deploy your backend application to a cloud platform.
+
+                                    <br></b>Resources:</br></b>
+
+                                    <a href="https://docs.docker.com/">1. Docker</a><br>
+                                    <a href="https://kubernetes.io/docs/home/">2. Kubernetes</a>
+                                    <a href="https://owasp.org/">3. Web Application Security</a>
+                                    <a href="https://docs.aws.amazon.com/">4. Cloud Providers (AWS, Azure, GCP)</a>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left four">
+                                <div class="icon animate fadeInLeft" data-wow-delay="2.2s">
+                                    <img src="/Digital Marketing.gif" alt="">
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <h4>Build Real Projects</h4>
+                                <p>
+                                    <b>Step 4:Build Real Projects:-</b>
+                                    Apply your knowledge by building real-world projects. This could include personal projects, open-source contributions, or freelance work
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left five">
+                                <div class="icon animate fadeInLeft" data-wow-delay="2.4s">
+                                    <img src="/img/Sail Ho Studio.gif" alt="">
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <h4>Continuous Learning </h4>
+                                <p>
+                                    <b>Step 5:Continuous Learning:-</b>
+                                    Stay updated with the latest trends and 
+                                    technologies in back-end development by reading blogs, attending conferences, and taking online courses.            
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="wow.min.js"></script>
+<script>
+    jQuery(document).ready(function ($) {
+        "use strict"
+        $("#loader").delay(1000).fadeOut("slow");
+        var wow = new WOW({
+            boxClass: 'animate',
+            animateClass: 'animated',
+            offset: 90,
+            mobile: false
+        });
+        wow.init();
+    });
+
+    $("#loader").delay(1000).fadeOut(500);
+</script>
+</body>
+</html>
